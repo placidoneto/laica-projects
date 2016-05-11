@@ -1,0 +1,88 @@
+public class Cubo2 {
+
+
+	private Face front;
+	private Face back;
+	private Face top;
+	private Face bottom;
+	private Face left;
+	private Face rigth;
+	private int aux1;
+	private int aux2;
+
+	public Cubo2(Face front, Face back,Face top, Face bottom,Face left,Face rigth){
+		this.front = front;
+		this.back = back;
+		this.top = top;
+		this.bottom = bottom;
+		this.left = left;
+		this.rigth = rigth;         
+	}
+
+	int [][]matriz = { {1, 1, 1}, {2, 2, 2}, {3, 3, 3} };  
+
+	public void frontTurnRight90(){
+		  front.turnRight90();
+		  int aux1[] = top.getBottom();
+		  int aux2[] = rigth.getLeftI();
+		  int aux3[] = bottom.getTop();		  
+		  top.setBottom(left.getRightI());
+		  rigth.setLeft(aux1);
+		  bottom.setTop(aux2);
+		  left.setRight(aux3);
+	}
+	public void frontTurn180(){
+            frontTurnRight90();
+             frontTurnRight90();
+                    
+		 //front.turn180();
+		 // int aux1[] = left.getRight();
+		 // int aux2[] = top.getBottom();
+		 // int aux3[] = rigth.getLeft();		  
+		 // top.setBottom(bottom.getTop());
+		//  rigth.setLeft(aux1);
+		//  bottom.setTop(aux2);
+		//  left.setRight(aux3);
+		           
+	}
+	public void frontTurnLeft90(){
+             frontTurnRight90();
+             frontTurnRight90();
+              frontTurnRight90();
+		//  front.turnLeft90();
+               //   int aux1[] = bottom.getTop();
+		//  int aux2[] = left.getRight();
+		//  int aux3[] = top.getRightI();	  
+		//  top.setBottom(rigth.getRightI());
+		//  rigth.setLeft(aux1);
+		//  bottom.setTop(aux2);
+		//  left.setRight(aux3);
+           }     
+        public void topTurnRight90(){        
+                  top.turnRight90();
+                  int aux1[] = top.getBottom();
+		  int aux2[] = rigth.getLeftI();
+		  int aux3[] = bottom.getTop();		  
+		  top.setBottom(left.getRightI());
+		  rigth.setLeft(aux1);
+		  bottom.setTop(aux2);
+		  left.setRight(aux3);
+                
+                
+	}
+//
+//
+//	public void Exibir(){
+//
+//		for (int i=0; i<matriz.length; i++) {    
+//			System.out.printf("%da. linha: ", (i+1));
+//			for (int j=0; j<matriz[i].length; j++) {
+//
+//				System.out.printf("%d ", matriz[i][j]);
+//			}
+//			System.out.println("\n");
+//		}
+//
+//	}
+    
+}

@@ -1,0 +1,17 @@
+public class TesteCubo {
+    
+	 public static void main(String[] args) {
+
+         Face f = new Face(2);
+//          f.Exibir();
+//          f.FrontTurnLeft90();
+//          
+//          f.Exibir();
+//          f.FrontTurnLeft_90();
+//          f.Exibir();
+//          f.FrontTurnLeft180();
+//          f.Exibir();   
+        
+        
+    }
+}

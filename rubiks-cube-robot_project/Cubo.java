@@ -10,7 +10,7 @@ public class Cubo {
     private int aux1;
     private int aux2;
 
-    int[][] matriz = {{1, 1, 1}, {2, 2, 2}, {3, 3, 3}};
+    
 
     public Cubo(Face front, Face back, Face top, Face bottom, Face left, Face rigth) {
         this.front = front;

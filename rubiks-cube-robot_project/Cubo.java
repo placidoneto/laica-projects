@@ -21,6 +21,8 @@ public class Cubo {
         this.rigth = rigth;
     }
 
+    
+    
     public void frontTurnRight90() {
         front.turnRight90();
         int aux1[] = top.getBottom();
@@ -43,118 +45,176 @@ public class Cubo {
         frontTurnRight90();
     }
 
-    public void rightTurnRight90() {
+    
+    public void rightTurnRight90(){
         rigth.turnRight90();
         int aux1[] = top.getRightI();
-        int aux2[] = back.getLeftI();
+        int aux2[] = back.getRightI();
         int aux3[] = bottom.getRight();
         top.setRight(front.getRight());
-        back.setLeft(aux1);
+        back.setRight(aux1);
         bottom.setRight(aux2);
         front.setRight(aux3);
-
+    }
+    
+    public void rightTurn180(){
+        rightTurnRight90();
+        rightTurnRight90();
     }
 
+    public void rightTurnLeft90(){
+        rightTurnRight90();
+        rightTurnRight90();
+        rightTurnRight90();
+    }
+    
+    
+    public void leftTurnRight90(){
+        left.turnRight90();
+        int aux1[] = top.getLeft();
+        int aux2[] = front.getLeft();
+        int aux3[] = bottom.getLeftI();
+        top.setLeft(back.getLeftI());
+        front.setLeft(aux1);
+        bottom.setLeft(aux2);
+        back.setLeft(aux3);
+    }
+    
+    public void leftTurn180(){
+        leftTurnRight90();
+        leftTurnRight90();
+    }
+
+    public void leftTurnLeft90(){
+        leftTurnRight90();
+        leftTurnRight90();
+        leftTurnRight90();
+    }
+    
+    
+    public void topTurnRight90(){
+        
+        top.turnRight90();
+        int aux1[] = rigth.getTop();
+        int aux2[] = front.getTop();
+        int aux3[] = left.getTopI();
+        rigth.setTop(back.getTopI());
+        front.setTop(aux1);
+        left.setTop(aux2);
+        back.setTop(aux3);
+    }
+    
+    public void topTurn180(){
+        topTurnRight90();
+        topTurnRight90();
+    }
+
+    public void topTurnLeft90(){
+        topTurnRight90();
+        topTurnRight90();
+        topTurnRight90();
+    }
+    
+    public void bottomTurnLeft90(){
+        bottom.turnLeft90();
+        int aux1[] = rigth.getBottom();
+        int aux2[] = front.getBottom();
+        int aux3[] = left.getBottomI();
+        rigth.setBottom(back.getBottomI());
+        front.setBottom(aux1);
+        left.setBottom(aux2);
+        back.setBottom(aux3);
+    }
+    
+    public void bottomTurn180(){
+        bottomTurnLeft90();
+        bottomTurnLeft90();
+    }
+
+    public void bottomTurnRight90(){
+        bottomTurnLeft90();
+        bottomTurnLeft90();
+        bottomTurnLeft90();
+    }
+    
+    
+    public void backTurnRight90(){
+        back.turnRight90();
+        int aux1[] = top.getTop();
+        int aux2[] = rigth.getRightI();
+        int aux3[] = bottom.getBottom();
+        top.setTop(left.getLeftI());
+        rigth.setRight(aux1);
+        bottom.setBottom(aux2);
+        left.setLeft(aux3);
+    }
+    
+    public void backTurn180(){
+        backTurnRight90();
+        backTurnRight90();
+    }
+
+    public void backTurnLeft90(){
+        backTurnRight90();
+        backTurnRight90();
+        backTurnRight90();
+
+    }
+    
+    
+    /*
+    public void rightTurnRight90(){
+        rigth.turnRight90();
+        int aux1[] = top.getRightI();
+        int aux2[] = back.getRightI();
+        int aux3[] = bottom.getRight();
+        top.setRight(front.getRight());
+        back.setRight(aux1);
+        bottom.setRight(aux2);
+        front.setRight(aux3);
+    }
+    
+    
     public void rightTurn180() {
         rightTurnRight90();
         rightTurnRight90();
+        
     }
 
     public void rightTurnLeft90() {
         rightTurnRight90();
         rightTurnRight90();
         rightTurnRight90();
+        
     }
-
-    public void bottomTurnRight90() {
-        bottom.turnRight90();
-        int aux1[] = front.getBottom();
-        int aux2[] = rigth.getBottom();
-        int aux3[] = back.getBottom();
-        front.setBottom(left.getBottom());
-        rigth.setBottom(aux1);
-        back.setBottom(aux2);
-        left.setBottom(aux3);
-    }
-
-    public void bottomTurn180() {
-        bottomTurnRight90();
-        bottomTurnRight90();
-    }
-
-    public void bottomTurnLeft90() {
-        bottomTurnRight90();
-        bottomTurnRight90();
-        bottomTurnRight90();
-    }
-
-    public void backTurnRight90() {
-        back.turnRight90();
-        int aux1[] = top.getTopI();
-        int aux2[] = left.getLeft();
-        int aux3[] = bottom.getBottomI();
-        top.setTop(rigth.getRight());
-        left.setLeft(aux1);
-        bottom.setBottom(aux2);
-        rigth.setRight(aux3);
-    }
-
-    public void backTurn180() {
-        backTurnRight90();
-        backTurnRight90();
-    }
-
-    public void backTurnLeft90() {
-        backTurnRight90();
-        backTurnRight90();
-        backTurnRight90();
-    }
-
-    public void topTurnRight90() {
-        top.turnRight90();
-        int aux1[] = back.getTop();
-        int aux2[] = rigth.getTop();
-        int aux3[] = front.getTop();
-        back.setTop(left.getTop());
-        rigth.setTop(aux1);
-        front.setTop(aux2);
-        left.setTop(aux3);
-    }
-
-    public void topTurn180() {
-        topTurnRight90();
-        topTurnRight90();
-
-    }
-
-    public void topTurnLeft90() {
-        topTurnRight90();
-        topTurnRight90();
-        topTurnRight90();
-    }
-
-    public void leftTurnRight90() {
+    
+    
+    public void leftTurnRight90(){
         left.turnRight90();
         int aux1[] = top.getLeft();
-        int aux2[] = front.getLeft();
+        int aux2[] = back.getLeft();
         int aux3[] = bottom.getLeftI();
-        top.setLeft(back.getRightI());
+        top.setLeft(front.getLeftI());
         front.setLeft(aux1);
         bottom.setLeft(aux2);
-        back.setRight(aux3);
+        back.setLeft(aux3);
     }
-
-    public void leftTurn180() {
+    
+     public void leftTurn180() {
         leftTurnRight90();
         leftTurnRight90();
+        
     }
 
     public void leftTurnLeft90() {
         leftTurnRight90();
         leftTurnRight90();
         leftTurnRight90();
+        
     }
-
+*/
+    
+    
     public void exibir_Front() {
         int[][] matriz_front = front.getFace();
         for (int i = 0; i < 3; i++) {

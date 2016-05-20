@@ -13,7 +13,7 @@ public class Face {
         return face;
     }
 
-    public void turnRight90() {
+    public void turnClock() {
         //girando os elementos das pontas
         aux1 = face[0][0];
         aux2 = face[0][2];
@@ -35,15 +35,15 @@ public class Face {
         face[0][1] = aux2;
     }
 
-    public void turn180() {
-        turnRight90();
-        turnRight90();
+    public void turnClock180() {
+        turnClock();
+        turnClock();
     }
 
-    public void turnLeft90() {
-        turnRight90();
-        turnRight90();
-        turnRight90();
+    public void turnIClock() {
+        turnClock();
+        turnClock();
+        turnClock();
     }
 
     public int[] getTop() {

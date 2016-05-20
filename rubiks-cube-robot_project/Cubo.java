@@ -9,6 +9,7 @@ public class Cubo {
     private Face rigth;
     private int aux1;
     private int aux2;
+    String historyMoviments = "";
 
     
 
@@ -23,8 +24,8 @@ public class Cubo {
 
     
     
-    public void frontTurnRight90() {
-        front.turnRight90();
+    public void frontClock() {
+        front.turnClock();
         int aux1[] = top.getBottom();
         int aux2[] = rigth.getLeftI();
         int aux3[] = bottom.getTop();
@@ -32,22 +33,25 @@ public class Cubo {
         rigth.setLeft(aux1);
         bottom.setTop(aux2);
         left.setRight(aux3);
+        historyMoviments += "frontClock\n";
     }
 
-    public void frontTurn180() {
-        frontTurnRight90();
-        frontTurnRight90();
+    public void frontClock180() {
+        frontClock();
+        frontClock();
+        historyMoviments += "frontClock180\n";
     }
 
-    public void frontTurnLeft90() {
-        frontTurnRight90();
-        frontTurnRight90();
-        frontTurnRight90();
+    public void frontIClock() {
+        frontClock();
+        frontClock();
+        frontClock();
+        historyMoviments += "frontIClock\n";
     }
 
     
-    public void rightTurnRight90(){
-        rigth.turnRight90();
+    public void rightClock(){
+        rigth.turnClock();
         int aux1[] = top.getRightI();
         int aux2[] = back.getRightI();
         int aux3[] = bottom.getRight();
@@ -55,22 +59,25 @@ public class Cubo {
         back.setRight(aux1);
         bottom.setRight(aux2);
         front.setRight(aux3);
+        historyMoviments += "rightClock\n";
     }
     
-    public void rightTurn180(){
-        rightTurnRight90();
-        rightTurnRight90();
+    public void rightClock180(){
+        rightClock();
+        rightClock();
+        historyMoviments += "rightClock180\n";
     }
 
-    public void rightTurnLeft90(){
-        rightTurnRight90();
-        rightTurnRight90();
-        rightTurnRight90();
+    public void rightIClock(){
+        rightClock();
+        rightClock();
+        rightClock();
+        historyMoviments += "rightIClock\n";
     }
     
     
-    public void leftTurnRight90(){
-        left.turnRight90();
+    public void leftClock(){
+        left.turnClock();
         int aux1[] = top.getLeft();
         int aux2[] = front.getLeft();
         int aux3[] = bottom.getLeftI();
@@ -78,23 +85,26 @@ public class Cubo {
         front.setLeft(aux1);
         bottom.setLeft(aux2);
         back.setLeft(aux3);
+        historyMoviments += "leftClock\n";
     }
     
-    public void leftTurn180(){
-        leftTurnRight90();
-        leftTurnRight90();
+    public void leftClock180(){
+        leftClock();
+        leftClock();
+        historyMoviments += "leftClock180\n";
     }
 
-    public void leftTurnLeft90(){
-        leftTurnRight90();
-        leftTurnRight90();
-        leftTurnRight90();
+    public void leftIClock(){
+        leftClock();
+        leftClock();
+        leftClock();
+        historyMoviments += "leftIClock\n";
     }
     
     
-    public void topTurnRight90(){
+    public void topClock(){
         
-        top.turnRight90();
+        top.turnClock();
         int aux1[] = rigth.getTop();
         int aux2[] = front.getTop();
         int aux3[] = left.getTopI();
@@ -102,21 +112,24 @@ public class Cubo {
         front.setTop(aux1);
         left.setTop(aux2);
         back.setTop(aux3);
+        historyMoviments += "topClock\n";
     }
     
-    public void topTurn180(){
-        topTurnRight90();
-        topTurnRight90();
+    public void topClock180(){
+        topClock();
+        topClock();
+        historyMoviments += "topClock180\n";
     }
 
-    public void topTurnLeft90(){
-        topTurnRight90();
-        topTurnRight90();
-        topTurnRight90();
+    public void topIClock(){
+        topClock();
+        topClock();
+        topClock();
+        historyMoviments += "topIClock\n";
     }
     
-    public void bottomTurnLeft90(){
-        bottom.turnLeft90();
+    public void bottomClock(){
+        bottom.turnIClock();
         int aux1[] = rigth.getBottom();
         int aux2[] = front.getBottom();
         int aux3[] = left.getBottomI();
@@ -124,22 +137,25 @@ public class Cubo {
         front.setBottom(aux1);
         left.setBottom(aux2);
         back.setBottom(aux3);
+        historyMoviments += "bottomClock\n";
     }
     
-    public void bottomTurn180(){
-        bottomTurnLeft90();
-        bottomTurnLeft90();
+    public void bottomClock180(){
+        bottomClock();
+        bottomClock();
+        historyMoviments += "bottomClock180\n";
     }
 
-    public void bottomTurnRight90(){
-        bottomTurnLeft90();
-        bottomTurnLeft90();
-        bottomTurnLeft90();
+    public void bottomIClock(){
+        bottomClock();
+        bottomClock();
+        bottomClock();
+        historyMoviments += "bottomIClock\n";
     }
     
     
-    public void backTurnRight90(){
-        back.turnRight90();
+    public void backClock(){
+        back.turnClock();
         int aux1[] = top.getTop();
         int aux2[] = rigth.getRightI();
         int aux3[] = bottom.getBottom();
@@ -147,74 +163,24 @@ public class Cubo {
         rigth.setRight(aux1);
         bottom.setBottom(aux2);
         left.setLeft(aux3);
+        historyMoviments += "backClock\n";
     }
     
-    public void backTurn180(){
-        backTurnRight90();
-        backTurnRight90();
-    }
-
-    public void backTurnLeft90(){
-        backTurnRight90();
-        backTurnRight90();
-        backTurnRight90();
-
-    }
-    
-    
-    /*
-    public void rightTurnRight90(){
-        rigth.turnRight90();
-        int aux1[] = top.getRightI();
-        int aux2[] = back.getRightI();
-        int aux3[] = bottom.getRight();
-        top.setRight(front.getRight());
-        back.setRight(aux1);
-        bottom.setRight(aux2);
-        front.setRight(aux3);
-    }
-    
-    
-    public void rightTurn180() {
-        rightTurnRight90();
-        rightTurnRight90();
-        
+    public void backClock180(){
+        backClock();
+        backClock();
+        historyMoviments += "backClock180\n";
     }
 
-    public void rightTurnLeft90() {
-        rightTurnRight90();
-        rightTurnRight90();
-        rightTurnRight90();
-        
-    }
-    
-    
-    public void leftTurnRight90(){
-        left.turnRight90();
-        int aux1[] = top.getLeft();
-        int aux2[] = back.getLeft();
-        int aux3[] = bottom.getLeftI();
-        top.setLeft(front.getLeftI());
-        front.setLeft(aux1);
-        bottom.setLeft(aux2);
-        back.setLeft(aux3);
-    }
-    
-     public void leftTurn180() {
-        leftTurnRight90();
-        leftTurnRight90();
-        
-    }
+    public void backIClock(){
+        backClock();
+        backClock();
+        backClock();
+        historyMoviments += "backIClock\n";
 
-    public void leftTurnLeft90() {
-        leftTurnRight90();
-        leftTurnRight90();
-        leftTurnRight90();
-        
     }
-*/
     
-    
+ 
     public void exibir_Front() {
         int[][] matriz_front = front.getFace();
         for (int i = 0; i < 3; i++) {

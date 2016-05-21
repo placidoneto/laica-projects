@@ -1,17 +1,16 @@
 //Autoras: Camila Jordana e Helora Dana
 
 public class Teste {
-    /*
-     Verde(front): 1
-     Branco(Top): 2
-     Vermelho(Right): 3
-     Amarelo(bottom): 4
-     Laranja(Left): 5
+     /*
+     Verde(front): 3
+     Branco(bottom): 1
+     Vermelho(Left): 5
+     Amarelo(top): 2
+     Laranja(rigth): 4
      Azul(back): 6
      */
 
-    public static void main(String[] args) {
-
+         
         int[][] front = new int[3][3];
         int[][] top = new int[3][3];
         int[][] right = new int[3][3];
@@ -21,7 +20,7 @@ public class Teste {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                front[i][j] = 1;
+                front[i][j] = 3;
             }
         }
 
@@ -33,7 +32,7 @@ public class Teste {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                right[i][j] = 3;
+                right[i][j] = 4;
             }
         }
 
@@ -45,7 +44,7 @@ public class Teste {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                bottom[i][j] = 4;
+                bottom[i][j] = 1;
             }
         }
 
@@ -54,6 +53,7 @@ public class Teste {
                 back[i][j] = 6;
             }
         }
+
 
         Face face_Front = new Face(front);
         Face face_Top = new Face(top);

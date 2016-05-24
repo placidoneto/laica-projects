@@ -234,6 +234,42 @@ public class Cubo {
             topClock();
             leftClock();
             frontIClock();
+        } else if(matriz_front[1][0] == 1 && matriz_left[1][2] == 3){
+            leftClock();
+            bottomClock();
+        } else if(matriz_left[1][2] == 1 && matriz_front[1][0] == 3){
+            frontIClock();
+        } else if(matriz_left[2][1] == 1 && matriz_bottom[1][0] == 3){
+            leftIClock();
+            frontIClock();
+        } else if(matriz_left[0][1] == 1 && matriz_top[1][0] == 3){
+            leftClock();
+            frontIClock();
+        } else if(matriz_left[1][0] == 1 && matriz_back[1][0] == 3){
+            leftClock180();
+            frontIClock();
+        } else if(matriz_right[1][0] == 1 && matriz_front[1][2] == 3){
+            frontClock();
+        }  else if(matriz_right[2][1] == 1 && matriz_bottom[1][2] == 3){
+            rightClock();
+            frontClock();
+        } else if(matriz_right[1][2] == 1 && matriz_back[1][2] == 3){
+            rightClock180();
+            frontClock();
+        } else if(matriz_right[0][1] == 1 && matriz_top[1][2] == 3){
+            rightIClock();
+            frontClock();
+        } else if(matriz_top[2][1] == 1 && matriz_front[0][1] == 3){
+            frontClock180();
+        } else if(matriz_top[1][0] == 1 && matriz_left[0][1] == 3){
+            topIClock();
+            frontClock180();
+        } else if(matriz_top[1][2] == 1 && matriz_right[0][1] == 3){
+            topClock();
+            frontClock180();
+        } else if(matriz_top[0][1] == 1 && matriz_back[0][1] == 3){
+            topClock180();
+            frontClock180();
         }
 
     }

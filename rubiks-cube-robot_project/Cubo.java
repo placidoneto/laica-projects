@@ -270,8 +270,23 @@ public class Cubo {
         } else if(matriz_top[0][1] == 1 && matriz_back[0][1] == 3){
             topClock180();
             frontClock180();
+        } else if(matriz_back[0][1] == 1 && matriz_top[0][1] == 3){
+            topIClock();
+            leftClock();
+            frontIClock();
+        } else if(matriz_back[1][0] == 1 && matriz_left[1][0] == 3){
+            leftIClock();
+            bottomClock();
+        } else if(matriz_back[1][2] == 1 && matriz_right[1][2] == 3){
+            rightClock();
+            bottomIClock();
+        } else if(matriz_back[2][1] == 1 && matriz_bottom[2][1] == 3){
+            backIClock();
+            leftIClock();
+            bottomClock();
         }
 
     }
+
 
 }

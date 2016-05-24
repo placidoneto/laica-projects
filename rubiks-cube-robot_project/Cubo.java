@@ -11,6 +11,10 @@ public class Cubo {
     private int aux2;
     String historyMoviments = "";
 
+
+    public String getHistoryMoviments() {
+        return historyMoviments;
+    }
     
 
     public Cubo(Face front, Face back, Face top, Face bottom, Face left, Face rigth) {
@@ -22,8 +26,6 @@ public class Cubo {
         this.rigth = rigth;
     }
 
-    
-    
     public void frontClock() {
         front.turnClock();
         int aux1[] = top.getBottom();
@@ -49,8 +51,7 @@ public class Cubo {
         historyMoviments += "frontIClock\n";
     }
 
-    
-    public void rightClock(){
+    public void rightClock() {
         rigth.turnClock();
         int aux1[] = top.getRightI();
         int aux2[] = back.getRightI();
@@ -61,22 +62,21 @@ public class Cubo {
         front.setRight(aux3);
         historyMoviments += "rightClock\n";
     }
-    
-    public void rightClock180(){
+
+    public void rightClock180() {
         rightClock();
         rightClock();
         historyMoviments += "rightClock180\n";
     }
 
-    public void rightIClock(){
+    public void rightIClock() {
         rightClock();
         rightClock();
         rightClock();
         historyMoviments += "rightIClock\n";
     }
-    
-    
-    public void leftClock(){
+
+    public void leftClock() {
         left.turnClock();
         int aux1[] = top.getLeft();
         int aux2[] = front.getLeft();
@@ -87,23 +87,73 @@ public class Cubo {
         back.setLeft(aux3);
         historyMoviments += "leftClock\n";
     }
-    
-    public void leftClock180(){
+
+    public void leftClock180() {
         leftClock();
         leftClock();
         historyMoviments += "leftClock180\n";
     }
 
-    public void leftIClock(){
+    public void leftIClock() {
         leftClock();
         leftClock();
         leftClock();
         historyMoviments += "leftIClock\n";
     }
-    
-    
-    public void topClock(){
-        
+
+    public void bottomIClock() {
+        bottom.turnIClock();
+        int aux1[] = rigth.getBottom();
+        int aux2[] = front.getBottom();
+        int aux3[] = left.getBottomI();
+        rigth.setBottom(back.getBottomI());
+        front.setBottom(aux1);
+        left.setBottom(aux2);
+        back.setBottom(aux3);
+        historyMoviments += "bottomIClock\n";
+    }
+
+    public void bottomClock180() {
+        bottomIClock();
+        bottomIClock();
+        historyMoviments += "bottomClock180\n";
+    }
+
+    public void bottomClock() {
+        bottomIClock();
+        bottomIClock();
+        bottomIClock();
+        historyMoviments += "bottomClock\n";
+    }
+
+    public void backIClock() {
+        back.turnClock();
+        int aux1[] = top.getTop();
+        int aux2[] = rigth.getRightI();
+        int aux3[] = bottom.getBottom();
+        top.setTop(left.getLeftI());
+        rigth.setRight(aux1);
+        bottom.setBottom(aux2);
+        left.setLeft(aux3);
+        historyMoviments += "backIClock\n";
+    }
+
+    public void backClock180() {
+        backIClock();
+        backIClock();
+        historyMoviments += "backClock180\n";
+    }
+
+    public void backClock() {
+        backIClock();
+        backIClock();
+        backIClock();
+        historyMoviments += "backClock\n";
+
+    }
+
+    public void topClock() {
+
         top.turnClock();
         int aux1[] = rigth.getTop();
         int aux2[] = front.getTop();
@@ -114,131 +164,78 @@ public class Cubo {
         back.setTop(aux3);
         historyMoviments += "topClock\n";
     }
-    
-    public void topClock180(){
+
+    public void topClock180() {
         topClock();
         topClock();
         historyMoviments += "topClock180\n";
     }
 
-    public void topIClock(){
+    public void topIClock() {
         topClock();
         topClock();
         topClock();
         historyMoviments += "topIClock\n";
     }
-    
-    public void bottomClock(){
-        bottom.turnIClock();
-        int aux1[] = rigth.getBottom();
-        int aux2[] = front.getBottom();
-        int aux3[] = left.getBottomI();
-        rigth.setBottom(back.getBottomI());
-        front.setBottom(aux1);
-        left.setBottom(aux2);
-        back.setBottom(aux3);
-        historyMoviments += "bottomClock\n";
-    }
-    
-    public void bottomClock180(){
-        bottomClock();
-        bottomClock();
-        historyMoviments += "bottomClock180\n";
-    }
 
-    public void bottomIClock(){
-        bottomClock();
-        bottomClock();
-        bottomClock();
-        historyMoviments += "bottomIClock\n";
-    }
-    
-    
-    public void backClock(){
-        back.turnClock();
-        int aux1[] = top.getTop();
-        int aux2[] = rigth.getRightI();
-        int aux3[] = bottom.getBottom();
-        top.setTop(left.getLeftI());
-        rigth.setRight(aux1);
-        bottom.setBottom(aux2);
-        left.setLeft(aux3);
-        historyMoviments += "backClock\n";
-    }
-    
-    public void backClock180(){
-        backClock();
-        backClock();
-        historyMoviments += "backClock180\n";
-    }
-
-    public void backIClock(){
-        backClock();
-        backClock();
-        backClock();
-        historyMoviments += "backIClock\n";
-
-    }
-    
- 
-    public void exibir_Front() {
-        int[][] matriz_front = front.getFace();
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(matriz_front[i][j] + " ");
-            }
-            System.out.println("");
-        }
-    }
-
-    public void exibir_Left() {
+    public void exibir_Cubo() {
+        int matriz_front[][] = front.getFace();
         int matriz_left[][] = left.getFace();
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(matriz_left[i][j] + " ");
-            }
-            System.out.println("");
-        }
-    }
-
-    public void exibir_Right() {
         int matriz_right[][] = rigth.getFace();
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(matriz_right[i][j] + " ");
-            }
-            System.out.println("");
-        }
-    }
-
-    public void exibir_Top() {
         int matriz_top[][] = top.getFace();
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(matriz_top[i][j] + " ");
-            }
-            System.out.println("");
-        }
-    }
-
-    public void exibir_Back() {
         int matriz_back[][] = back.getFace();
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(matriz_back[i][j] + " ");
-            }
-            System.out.println("");
-        }
+        int matriz_bottom[][] = bottom.getFace();
+
+        System.out.print("        ");
+        System.out.println(matriz_top[0][0] + " " + matriz_top[0][1] + " " + matriz_top[0][2]);
+        System.out.print("        ");
+        System.out.println(matriz_top[1][0] + " " + matriz_top[1][1] + " " + matriz_top[1][2]);
+        System.out.print("        ");
+        System.out.println(matriz_top[2][0] + " " + matriz_top[2][1] + " " + matriz_top[2][2]);
+
+        System.out.println(matriz_left[0][0] + " " + matriz_left[0][1] + " " + matriz_left[0][2] + "   " + matriz_front[0][0] + " " + matriz_front[0][1] + " " + matriz_front[0][2] + "   " + matriz_right[0][0] + " " + matriz_right[0][1] + " " + matriz_right[0][2] + "   " + matriz_back[0][2] + " " + matriz_back[0][1] + " " + matriz_back[0][0]);
+        System.out.println(matriz_left[1][0] + " " + matriz_left[1][1] + " " + matriz_left[1][2] + "   " + matriz_front[1][0] + " " + matriz_front[1][1] + " " + matriz_front[1][2] + "   " + matriz_right[1][0] + " " + matriz_right[1][1] + " " + matriz_right[1][2] + "   " + matriz_back[1][2] + " " + matriz_back[1][1] + " " + matriz_back[1][0]);
+        System.out.println(matriz_left[2][0] + " " + matriz_left[2][1] + " " + matriz_left[2][2] + "   " + matriz_front[2][0] + " " + matriz_front[2][1] + " " + matriz_front[2][2] + "   " + matriz_right[2][0] + " " + matriz_right[2][1] + " " + matriz_right[2][2] + "   " + matriz_back[2][2] + " " + matriz_back[2][1] + " " + matriz_back[2][0]);
+
+        System.out.print("        ");
+        System.out.println(matriz_bottom[0][0] + " " + matriz_bottom[0][1] + " " + matriz_bottom[0][2]);
+        System.out.print("        ");
+        System.out.println(matriz_bottom[1][0] + " " + matriz_bottom[1][1] + " " + matriz_bottom[1][2]);
+        System.out.print("        ");
+        System.out.println(matriz_bottom[2][0] + " " + matriz_bottom[2][1] + " " + matriz_bottom[2][2]);
+
     }
 
-    public void exibir_Bottom() {
+    
+    public void cruzBranca() {
+        
+        int matriz_front[][] = front.getFace();
+        int matriz_left[][] = left.getFace();
+        int matriz_right[][] = rigth.getFace();
+        int matriz_top[][] = top.getFace();
+        int matriz_back[][] = back.getFace();
         int matriz_bottom[][] = bottom.getFace();
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(matriz_bottom[i][j] + " ");
-            }
-            System.out.println("");
+
+        //(1,3)
+        if(matriz_bottom[1][2] == 1 && matriz_right[2][1] == 3) {
+            bottomIClock();
+        } else if(matriz_bottom[2][1] == 1 && matriz_back[2][1] == 3){
+            bottomClock180();
+        } else if(matriz_bottom[1][0] == 1 && matriz_left[2][1] == 3){
+            bottomClock();
+        } else if(matriz_front[2][1] == 1 && matriz_bottom[0][1] == 3){
+            frontIClock();
+            rightIClock();
+            bottomIClock();
+        } else if(matriz_front[1][2] == 1 && matriz_right[1][0] == 3){
+            rightIClock();
+            bottomIClock();
+        } else if(matriz_front[0][1] == 1 && matriz_top[2][1] == 3){
+            topClock();
+            leftClock();
+            frontIClock();
         }
+
     }
 
 }

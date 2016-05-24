@@ -1,4 +1,3 @@
-
 public class Face {
 
     int[][] face = new int[3][3];
@@ -13,7 +12,7 @@ public class Face {
         return face;
     }
 
-    public void turnClock() {
+    public void turnClock(){
         //girando os elementos das pontas
         aux1 = face[0][0];
         aux2 = face[0][2];
@@ -40,7 +39,7 @@ public class Face {
         turnClock();
     }
 
-    public void turnIClock() {
+    public void turnIClock(){
         turnClock();
         turnClock();
         turnClock();

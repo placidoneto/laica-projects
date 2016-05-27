@@ -207,6 +207,7 @@ public class Cubo {
     }
 
     
+    
     public void cruzBranca() {
         
         int matriz_front[][] = front.getFace();
@@ -286,6 +287,166 @@ public class Cubo {
             bottomClock();
         }
 
+        
+        //(1,6)
+        if(matriz_bottom[2][1] == 1 && matriz_back[2][1] == 6){
+            backClock180();
+            topIClock();
+            leftClock180();
+        } else if(matriz_bottom[1][2] == 1 && matriz_right[2][1] == 6){
+            rightClock180();
+            topClock180();
+            leftClock180();
+        } else if(matriz_left[2][1] == 1 && matriz_bottom[1][0] == 6){
+            leftClock180();
+            topClock();
+            backClock();
+            leftIClock();
+        } else if(matriz_left[1][2] == 1 && matriz_front[1][0] == 6){
+            leftIClock();
+            topClock();
+            backClock();
+            leftIClock();
+        } else if(matriz_left[0][1] == 1 && matriz_top[1][0] == 6){
+            topClock();
+            backClock();
+            leftIClock();
+        } else if(matriz_left[1][0] == 1 && matriz_back[1][0] == 6){
+            leftClock();
+            topClock();
+            backClock();
+            leftIClock();
+        } else if(matriz_right[1][0] == 1 && matriz_front[1][2] == 6){
+            rightClock180();
+            backClock();
+            topIClock();
+            leftClock180();
+        } else if(matriz_right[0][1] == 1 && matriz_top[1][2] == 6){
+            rightClock();
+            backClock();
+            topIClock();
+            leftClock180();
+        } else if(matriz_right[1][2] == 1 && matriz_back[1][2] == 6){
+            backClock();
+            topIClock();
+            leftClock180();
+        } else if(matriz_right[2][1] == 1 && matriz_bottom[1][2] == 6){
+            rightIClock();
+            backClock();
+            topIClock();
+            leftClock180();
+        } else if(matriz_front[1][0] == 1 && matriz_left[1][2] == 6){
+            leftClock();
+        } else if(matriz_front[0][1] == 1 && matriz_top[2][1] == 6){
+            topClock180();
+            backClock();
+            leftIClock();
+        } else if(matriz_front[1][2] == 1 && matriz_right[1][0] == 6){
+            rightClock();
+            topClock180();
+            leftClock180();
+        } else if(matriz_top[2][1] == 1 && matriz_front[0][1] == 6){
+            topClock();
+            leftClock180();
+        } else if(matriz_top[1][0] == 1 && matriz_left[0][1] == 6){
+            leftClock180();
+        } else if(matriz_top[0][1] == 1 && matriz_back[0][1] == 6){
+            topIClock();
+            leftClock180();
+        } else if(matriz_top[1][2] == 1 && matriz_right[0][1] == 6){
+            topClock180();
+            leftClock180();
+        } else if(matriz_back[2][1] == 1 && matriz_bottom[2][1] == 6){
+            backIClock();
+            leftIClock();
+        } else if(matriz_back[1][0] == 1 && matriz_left[1][0] == 6){
+            leftIClock();
+        } else if(matriz_back[1][2] == 1 && matriz_right[1][2] == 6){
+            backClock180();
+            leftIClock();
+        } else if(matriz_back[0][1] == 1 && matriz_top[0][1] == 6){
+            backClock();
+            leftIClock();
+        }
+        
+        
+        
+        
+        //(1,5)
+        
+        else if(matriz_bottom[1][2] == 1 && matriz_right[2][1] == 5){
+            rightClock180();
+            topIClock();
+            backClock180();
+        } else if(matriz_left[1][0] == 1 && matriz_back[1][0] == 5){
+            backClock();
+        } else if(matriz_left[1][2] == 1 && matriz_front[1][0] == 5){
+            leftIClock();
+            topClock180();
+            leftClock();
+            rightClock();
+            backIClock();
+        } else if(matriz_left[0][1] == 1 && matriz_top[1][0] == 5){
+            topClock180();
+            rightClock();
+            backIClock();
+        } else if(matriz_right[1][0] == 1 && matriz_front[1][2] == 5){
+            rightClock180();
+            backIClock();
+        } else if(matriz_right[0][1] == 1 && matriz_top[1][2] == 5){
+            rightClock();
+            backIClock();
+        } else if(matriz_right[1][2] == 1 && matriz_back[1][2] == 5){
+            backIClock();
+        } else if(matriz_right[2][1] == 1 && matriz_bottom[1][2] == 5){
+            rightIClock();
+            backIClock();
+        } else if(matriz_front[1][0] == 1 && matriz_left[1][2] == 5){
+            leftIClock();
+            topIClock();
+            leftClock();
+            topClock180();
+            backClock180();
+        } else if(matriz_front[1][2] == 1 && matriz_right[1][0] == 5){
+            rightClock();
+            topIClock();
+            backClock180();
+        } else if(matriz_front[0][1] == 1 && matriz_top[2][1] == 5){
+            topIClock();
+            rightClock();
+            backIClock();
+        } else if(matriz_top[2][1] == 1 && matriz_front[0][1] == 5){
+            topClock180();
+            backClock180();
+        } else if(matriz_top[1][0] == 1 && matriz_left[0][1] == 5){
+            topClock();
+            backClock180();
+        } else if(matriz_top[1][2] == 1 && matriz_right[0][1] == 5){
+            topIClock();
+            backClock180();
+        } else if(matriz_top[0][1] == 1 && matriz_back[0][1] == 5){
+            backClock180();
+        } else if(matriz_back[0][1] == 1 && matriz_top[0][1] == 5){
+            topClock();
+            rightClock();
+            backIClock();
+        } else if(matriz_back[1][0] == 1 && matriz_left[1][0] == 5){
+            backIClock();
+            topClock();
+            rightClock();
+            backIClock();
+        } else if(matriz_back[1][2] == 1 && matriz_right[1][2] == 5){
+             backClock();
+             topClock();
+             rightClock();
+             backIClock();
+        } else if(matriz_back[2][1] == 1 && matriz_bottom[2][1] == 5){
+             backClock180();
+             topClock();
+             rightClock();
+             backIClock();
+        }
+        
     }
 
 

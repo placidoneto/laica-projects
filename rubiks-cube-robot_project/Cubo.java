@@ -288,6 +288,8 @@ public class Cubo {
         }
 
         
+        
+        
         //(1,6)
         if(matriz_bottom[2][1] == 1 && matriz_back[2][1] == 6){
             backClock180();
@@ -371,10 +373,9 @@ public class Cubo {
         
         
         
-        
         //(1,5)
         
-        else if(matriz_bottom[1][2] == 1 && matriz_right[2][1] == 5){
+        if(matriz_bottom[1][2] == 1 && matriz_right[2][1] == 5){
             rightClock180();
             topIClock();
             backClock180();
@@ -446,6 +447,87 @@ public class Cubo {
              rightClock();
              backIClock();
         }
+        
+        
+        
+        
+        //(1,4)
+       
+        
+        if(matriz_right[2][1] == 1 && matriz_bottom[1][2] == 4){
+             backIClock();
+             rightIClock();
+             backClock();
+             topClock();
+             rightClock180();
+        } else if(matriz_right[1][0] == 1 && matriz_front[1][2] == 4){
+             backIClock();
+             rightClock180();
+             backClock();
+             topClock();
+             rightClock180();
+        } else if(matriz_right[0][1] == 1 && matriz_top[1][2] == 4){
+             backIClock();
+             rightClock();
+             backClock();
+             topClock();
+             rightClock180();
+        } else if(matriz_right[1][2] == 1 && matriz_back[1][2] == 4){
+            backClock();
+            topClock();
+            backIClock();
+            rightClock180();
+        } else if(matriz_front[1][0] == 1 && matriz_left[1][2] == 4){
+            leftIClock();
+            topClock180();
+            leftClock();
+            rightClock180();
+        } else if(matriz_front[1][2] == 1 && matriz_right[1][0] == 4){
+            rightIClock();
+        } else if(matriz_front[0][1] == 1 && matriz_top[2][1] == 4){
+            frontClock();
+            rightIClock();
+            frontIClock();
+        } else if(matriz_left[0][1] == 1 && matriz_top[1][0] == 4){
+            frontIClock();
+            topIClock();
+            frontClock();
+            rightIClock();
+        } else if(matriz_left[1][2] == 1 && matriz_front[1][0] == 4){
+            frontClock();
+            topIClock();
+            rightClock180();
+            frontIClock();
+        } else if(matriz_left[1][0] == 1 && matriz_back[1][0] == 4){
+            backIClock();
+            topClock();
+            rightClock180();
+            backClock();
+        } else if(matriz_top[2][1] == 1 && matriz_front[0][1] == 4){
+            topIClock();
+            rightClock180();
+        } else if(matriz_top[1][2] == 1 && matriz_right[0][1] == 4){
+            rightClock180();
+        } else if(matriz_top[1][0] == 1 && matriz_left[0][1] == 4){
+            topClock180();
+            rightClock180();
+        } else if(matriz_top[0][1] == 1 && matriz_back[0][1] == 4){
+            topClock();
+            rightClock180();
+        } else if(matriz_back[1][2] == 1 && matriz_right[1][2] == 4){
+            rightClock();
+        } else if(matriz_back[1][0] == 1 && matriz_left[1][0] == 4){
+            leftClock();
+            topClock180();
+            rightClock180();
+            leftIClock();
+        } else if(matriz_back[0][1] == 1 && matriz_top[0][1] == 4){
+            backIClock();
+            rightClock();
+            backClock();
+        }
+        
+        
         
     }
 

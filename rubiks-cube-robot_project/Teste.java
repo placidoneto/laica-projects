@@ -1,15 +1,17 @@
+//Autoras: Camila Jordana e Helora Dana
 
 public class Teste {
-
-    /*
+/*
      Branco(Bottom): 1
      Amarelo(Top): 2
      Verde(Front): 3
      Laranja(Right): 4
      Azul(Back): 5
      Vermelho(Left): 6
-     */
+*/
+
     public static void main(String[] args) {
+
         int[][] front = new int[3][3];
         int[][] top = new int[3][3];
         int[][] right = new int[3][3];
@@ -62,19 +64,23 @@ public class Teste {
 
         Cubo cubo = new Cubo(face_Front, face_Back, face_Top, face_Bottom, face_Left, face_Right);
 
-        
-        cubo.frontClock();
-        cubo.leftIClock();
+       
+        cubo.frontClock180();
         cubo.topIClock();
-        cubo.cruzBranca();
+        cubo.backIClock();
+        cubo.rightClock();
+        cubo.leftClock180();
+        cubo.backClock180();
+           
         
         
-        System.out.println(cubo.historyMoviments);
-   
+            
         
+        
+        cubo.primeiraCamada();
         
         cubo.exibir_Cubo();
-        
+
     }
 
 }

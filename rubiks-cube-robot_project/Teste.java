@@ -65,20 +65,17 @@ public class Teste {
         Cubo cubo = new Cubo(face_Front, face_Back, face_Top, face_Bottom, face_Left, face_Right);
 
        
-        cubo.frontClock180();
-        cubo.topIClock();
+        cubo.frontClock();
+        cubo.leftIClock();
+        cubo.topClock180();
         cubo.backIClock();
+        cubo.bottomClock();
         cubo.rightClock();
-        cubo.leftClock180();
-        cubo.backClock180();
-           
-        
-        
-            
         
         
         cubo.primeiraCamada();
-        
+        cubo.segundaCamada();
+
         cubo.exibir_Cubo();
 
     }

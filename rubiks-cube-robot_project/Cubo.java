@@ -41,14 +41,14 @@ public class Cubo {
     public void frontClock180() {
         frontClock();
         frontClock();
-        historyMoviments += "frontClock180\n";
+        //historyMoviments += "frontClock180\n";
     }
 
     public void frontIClock() {
         frontClock();
         frontClock();
         frontClock();
-        historyMoviments += "frontIClock\n";
+        //historyMoviments += "frontIClock\n";
     }
 
     public void rightClock() {
@@ -66,14 +66,14 @@ public class Cubo {
     public void rightClock180() {
         rightClock();
         rightClock();
-        historyMoviments += "rightClock180\n";
+        //historyMoviments += "rightClock180\n";
     }
 
     public void rightIClock() {
         rightClock();
         rightClock();
         rightClock();
-        historyMoviments += "rightIClock\n";
+        //historyMoviments += "rightIClock\n";
     }
 
     public void leftClock() {
@@ -91,14 +91,14 @@ public class Cubo {
     public void leftClock180() {
         leftClock();
         leftClock();
-        historyMoviments += "leftClock180\n";
+        //historyMoviments += "leftClock180\n";
     }
 
     public void leftIClock() {
         leftClock();
         leftClock();
         leftClock();
-        historyMoviments += "leftIClock\n";
+        //historyMoviments += "leftIClock\n";
     }
 
     public void bottomIClock() {
@@ -116,14 +116,14 @@ public class Cubo {
     public void bottomClock180() {
         bottomIClock();
         bottomIClock();
-        historyMoviments += "bottomClock180\n";
+        //historyMoviments += "bottomClock180\n";
     }
 
     public void bottomClock() {
         bottomIClock();
         bottomIClock();
         bottomIClock();
-        historyMoviments += "bottomClock\n";
+        //historyMoviments += "bottomClock\n";
     }
 
     public void backIClock() {
@@ -141,14 +141,14 @@ public class Cubo {
     public void backClock180() {
         backIClock();
         backIClock();
-        historyMoviments += "backClock180\n";
+        //historyMoviments += "backClock180\n";
     }
 
     public void backClock() {
         backIClock();
         backIClock();
         backIClock();
-        historyMoviments += "backClock\n";
+        //historyMoviments += "backClock\n";
 
     }
 
@@ -168,14 +168,14 @@ public class Cubo {
     public void topClock180() {
         topClock();
         topClock();
-        historyMoviments += "topClock180\n";
+        //historyMoviments += "topClock180\n";
     }
 
     public void topIClock() {
         topClock();
         topClock();
         topClock();
-        historyMoviments += "topIClock\n";
+        //historyMoviments += "topIClock\n";
     }
 
     public void exibir_Cubo() {

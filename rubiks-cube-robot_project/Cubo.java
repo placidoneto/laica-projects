@@ -1196,11 +1196,154 @@ public class Cubo {
             rightIClock();
         }
         
+        //(3, 6)
+        
+        if (matriz_front[0][1] == 3 && matriz_top[2][1] == 6) {
+            topIClock();
+            leftIClock();
+            topClock();
+            leftClock();
+            topClock();
+            frontClock();
+            topIClock();
+            frontIClock();
+        } else if (matriz_left[1][2] == 3 && matriz_front[1][0] == 6) {
+            frontClock();
+            topClock();
+            frontIClock();
+            topClock180();
+            frontClock();
+            topClock180();
+            frontIClock();
+            topClock();
+            leftIClock();
+            topIClock();
+            leftClock();
+        } else if (matriz_left[0][1] == 3 && matriz_top[1][0] == 6) {
+            topClock180();
+            leftIClock();
+            topClock();
+            leftClock();
+            topClock();
+            frontClock();
+            topIClock();
+            frontIClock();
+        } else if (matriz_left[1][0] == 3 && matriz_back[1][0] == 6) {
+            backIClock();
+            topIClock();
+            backClock();
+            topClock();
+            frontClock();
+            topIClock();
+            frontIClock();
+            topIClock();
+            leftIClock();
+            topClock();
+            leftClock();
+            backIClock();
+            topClock();
+            backClock();
+        } else if (matriz_back[1][0] == 3 && matriz_left[1][0] == 6) {
+            backIClock();
+            topClock();
+            backClock();
+            leftIClock();
+            topClock();
+            leftClock();
+            topClock();
+            frontClock();
+            topIClock();
+            frontIClock();
+            backIClock();
+            topIClock();
+            backClock();
+        } else if (matriz_back[1][2] == 3 && matriz_right[1][2] == 6) {
+            backClock();
+            topClock();
+            backIClock();
+            leftIClock();
+            topClock();
+            leftClock();
+            topClock();
+            frontClock();
+            topIClock();
+            frontIClock();
+            backClock();
+            topClock180();
+            backIClock();
+        } else if(matriz_back[0][1] == 3 && matriz_top[0][1] == 6){
+            topClock();
+            leftIClock();
+            topClock();
+            leftClock();
+            topClock();
+            frontClock();
+            topIClock();
+            frontIClock();
+        } else if(matriz_right[1][2] == 3 && matriz_back[1][2] == 6){
+            backClock();
+            topIClock();
+            backIClock();
+            topClock();
+            frontClock();
+            topIClock();
+            frontIClock();
+            topIClock();
+            leftIClock();
+            topClock();
+            leftClock();
+            topIClock();
+            backClock();
+            topClock();
+            backIClock();
+        } else if(matriz_right[0][1] == 3 && matriz_top[1][2] == 6){
+            leftIClock();
+            topClock();
+            leftClock();
+            topClock();
+            frontClock();
+            topIClock();
+            frontIClock();
+        } else if(matriz_top[1][0] == 3 && matriz_left[0][1] == 6){
+            topClock();
+            frontClock();
+            topIClock();
+            frontIClock();
+            topIClock();
+            leftIClock();
+            topClock();
+            leftClock();
+        } else if(matriz_top[2][1] == 3 && matriz_front[0][1] == 6){
+            topClock180();
+            frontClock();
+            topIClock();
+            frontIClock();
+            topIClock();
+            leftIClock();
+            topClock();
+            leftClock();
+        } else if(matriz_top[1][2] == 3 && matriz_right[0][1] == 6){
+            topIClock();
+            frontClock();
+            topIClock();
+            frontIClock();
+            topIClock();
+            leftIClock();
+            topClock();
+            leftClock();
+        } else if(matriz_top[0][1] == 3 && matriz_back[0][1] == 6){
+            frontClock();
+            topIClock();
+            frontIClock();
+            topIClock();
+            leftIClock();
+            topClock();
+            leftClock();
+        }
+
+        
         
 
     }
     
-    
-
-
 }

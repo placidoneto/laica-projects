@@ -1507,7 +1507,6 @@ public class Cubo {
             topClock();
             rightClock();
         } else if(matriz_top[1][0] == 4 && matriz_left[0][1] == 5){
-            //AQUI
             rightIClock();
             topClock();
             rightClock();

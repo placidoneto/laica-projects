@@ -1341,6 +1341,122 @@ public class Cubo {
             leftClock();
         }
 
+
+        //(6, 5)
+        
+        if(matriz_front[0][1] == 6 && matriz_top[2][1] == 5){
+            backIClock();
+            topClock();
+            backClock();
+            topClock();
+            leftClock();
+            topIClock();
+            leftIClock();
+        } else if(matriz_left[0][1] == 6 && matriz_top[1][0] == 5){
+            topIClock();
+            backIClock();
+            topClock();
+            backClock();
+            topClock();
+            leftClock();
+            topIClock();
+            leftIClock();
+        } else if(matriz_back[1][0] == 6 && matriz_left[1][0] == 5){
+            leftClock();
+            topClock();
+            leftIClock();
+            topClock180();
+            leftClock();
+            topClock180();
+            leftIClock();
+            topClock();
+            backIClock();
+            topIClock();
+            backClock();
+        } else if(matriz_back[1][2] == 6 && matriz_right[1][2] == 5){
+            backClock();
+            topClock180();
+            backClock180();
+            topClock();
+            backClock();
+            topClock();
+            leftClock();
+            topIClock();
+            leftIClock();
+            topClock180();
+            backClock();
+            topIClock();
+            backIClock();
+        } else if(matriz_back[0][1] == 6 && matriz_top[0][1] == 5){
+            topClock180();
+            backIClock();
+            topClock();
+            backClock();
+            topClock();
+            leftClock();
+            topIClock();
+            leftIClock();
+        } else if(matriz_right[1][2] == 6 && matriz_back[1][2] == 5){
+            backClock();
+            topClock();
+            backIClock();
+            leftClock();
+            topIClock();
+            leftIClock();
+            topIClock();
+            backIClock();
+            topClock();
+            backClock();
+            topIClock();
+            backClock();
+            topClock();
+            backIClock();
+        } else if(matriz_right[0][1] == 6 && matriz_top[1][2] == 5){
+            topClock();
+            backIClock();
+            topClock();
+            backClock();
+            topClock();
+            leftClock();
+            topIClock();
+            leftIClock();
+        } else if(matriz_top[2][1] == 6 && matriz_front[0][1] == 5){
+            topIClock();
+            leftClock();
+            topIClock();
+            leftIClock();
+            topIClock();
+            backIClock();
+            topClock();
+            backClock();
+        } else if(matriz_top[1][2] == 6 && matriz_right[0][1] == 5){
+            leftClock();
+            topIClock();
+            leftIClock();
+            topIClock();
+            backIClock();
+            topClock();
+            backClock();
+        } else if(matriz_top[1][0] == 6 && matriz_left[0][1] == 5){
+            topClock180();
+            leftClock();
+            topIClock();
+            leftIClock();
+            topIClock();
+            backIClock();
+            topClock();
+            backClock();
+        } else if(matriz_top[0][1] == 6 && matriz_back[0][1] == 5){
+            topClock();
+            leftClock();
+            topIClock();
+            leftIClock();
+            topIClock();
+            backIClock();
+            topClock();
+            backClock();
+        }
+
         
         
 

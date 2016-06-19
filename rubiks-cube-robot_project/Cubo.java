@@ -1457,9 +1457,93 @@ public class Cubo {
             backClock();
         }
 
+        //(4, 5)
         
+        if(matriz_front[0][1] == 4 && matriz_top[2][1] == 5){
+            backClock();
+            topIClock();
+            backIClock();
+            topIClock();
+            rightIClock();
+            topClock();
+            rightClock();
+        } else if(matriz_left[0][1] == 4 && matriz_top[1][0] == 5){
+            topIClock();
+            backClock();
+            topIClock();
+            backIClock();
+            topIClock();
+            rightIClock();
+            topClock();
+            rightClock();
+        } else if(matriz_back[0][1] == 4 && matriz_top[0][1] == 5){
+            topClock180();
+            backClock();
+            topIClock();
+            backIClock();
+            topIClock();
+            rightIClock();
+            topClock();
+            rightClock();
+        } else if(matriz_back[1][2] == 4 && matriz_right[1][2] == 5){
+            backClock();
+            topClock();
+            backIClock();
+            topClock180();
+            backClock();
+            topClock180();
+            backIClock();
+            topClock();
+            rightIClock();
+            topIClock();
+            rightClock();
+        } else if(matriz_right[0][1] == 4 && matriz_top[1][2] == 5){
+            topClock();
+            backClock();
+            topIClock();
+            backIClock();
+            topIClock();
+            rightIClock();
+            topClock();
+            rightClock();
+        } else if(matriz_top[1][0] == 4 && matriz_left[0][1] == 5){
+            //AQUI
+            rightIClock();
+            topClock();
+            rightClock();
+            topClock();
+            backClock();
+            topIClock();
+            backIClock();
+        } else if(matriz_top[2][1] == 4 && matriz_front[0][1] == 5){
+            topClock();
+            rightIClock();
+            topClock();
+            rightClock();
+            topClock();
+            backClock();
+            topIClock();
+            backIClock();
+        } else if(matriz_top[1][2] == 4 && matriz_right[0][1] == 5){
+            topClock180();
+            rightIClock();
+            topClock();
+            rightClock();
+            topClock();
+            backClock();
+            topIClock();
+            backIClock();
+        } else if(matriz_top[0][1] == 4 && matriz_back[0][1] == 5){
+            topIClock();
+            rightIClock();
+            topClock();
+            rightClock();
+            topClock();
+            backClock();
+            topIClock();
+            backIClock();
+        }
         
-
     }
     
 }

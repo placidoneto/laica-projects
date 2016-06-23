@@ -1542,6 +1542,91 @@ public class Cubo {
             topIClock();
             backIClock();
         }
+   
+    }
+    
+    
+    
+    public void cruzAmarela(){
+        
+        int matriz_front[][] = front.getFace();
+        int matriz_left[][] = left.getFace();
+        int matriz_right[][] = rigth.getFace();
+        int matriz_top[][] = top.getFace();
+        int matriz_back[][] = back.getFace();
+        int matriz_bottom[][] = bottom.getFace();
+        
+        // Se só tiver peça amarela no centro
+        if(matriz_top[0][1] != 2 && matriz_top[1][0] != 2 && matriz_top[1][2] != 2 && matriz_top[2][1] != 2){
+            // (F R' F' R) U2 F R' F' R2 U2 R'
+            frontClock();
+            rightIClock();
+            frontIClock();
+            rightClock();
+            topClock180();
+            frontClock();
+            rightIClock();
+            frontIClock();
+            rightClock180();
+            topClock180();
+            rightIClock();
+        } else if(matriz_top[0][1] == 2 && matriz_top[2][1] == 2 && matriz_top[1][0] != 2 && matriz_top[1][2] != 2){
+            // Se as peças estivem na vertical --> U F(R U R′ U′) F′
+            topClock();
+            frontClock();
+            rightClock();
+            topClock();
+            rightIClock();
+            topIClock();
+            frontIClock();
+        } else if(matriz_top[0][1] != 2 && matriz_top[2][1] != 2 && matriz_top[1][0] == 2 && matriz_top[1][2] == 2){
+            // Se as peças estivem na horizontal --> F(R U R′ U′) F′
+            frontClock();
+            rightClock();
+            topClock();
+            rightIClock();
+            topIClock();
+            frontIClock();
+        } else if(matriz_top[0][1] == 2 && matriz_top[1][0] == 2 && matriz_top[1][2] != 2 && matriz_top[2][1] != 2){
+            // quando as peças estão orientadas de modo a forma um L (caso 1)
+            // F U R U′ R′ F′
+            frontClock();
+            topClock();
+            rightClock();
+            topIClock();
+            rightIClock();
+            frontIClock();
+        } else if(matriz_top[0][1] == 2 && matriz_top[1][0] != 2 && matriz_top[1][2] == 2 && matriz_top[2][1] != 2){
+            // quando as peças estão orientadas de modo a forma um L (caso 2)
+            // U' F U R U′ R′ F′
+            topIClock();
+            frontClock();
+            topClock();
+            rightClock();
+            topIClock();
+            rightIClock();
+            frontIClock();
+        } else if(matriz_top[0][1] != 2 && matriz_top[1][0] != 2 && matriz_top[1][2] == 2 && matriz_top[2][1] == 2){
+            // quando as peças estão orientadas de modo a forma um L (caso 3)
+            // U2 F U R U′ R′ F′
+            topClock180();
+            frontClock();
+            topClock();
+            rightClock();
+            topIClock();
+            rightIClock();
+            frontIClock();
+        } else if(matriz_top[0][1] != 2 && matriz_top[1][0] == 2 && matriz_top[1][2] != 2 && matriz_top[2][1] == 2){
+            // quando as peças estão orientadas de modo a forma um L (caso 4)
+            // U F U R U′ R′ F′
+            topClock();
+            frontClock();
+            topClock();
+            rightClock();
+            topIClock();
+            rightIClock();
+            frontIClock();
+        }
         
     }
     

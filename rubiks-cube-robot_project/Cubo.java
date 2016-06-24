@@ -1630,4 +1630,335 @@ public class Cubo {
         
     }
     
+    
+    
+    
+    public void orientacaoCantos(){
+        
+        
+        int matriz_front[][] = front.getFace();
+        int matriz_left[][] = left.getFace();
+        int matriz_right[][] = rigth.getFace();
+        int matriz_top[][] = top.getFace();
+        int matriz_back[][] = back.getFace();
+        int matriz_bottom[][] = bottom.getFace();
+    
+        
+        if(matriz_top[2][0] == 2 && matriz_front[0][2] == 2 && matriz_right[0][2] == 2 && matriz_back[0][0] == 2){
+            // 1º CASO
+            // R U R' U R U2 R'
+            rightClock();
+            topClock();
+            rightIClock();
+            topClock();
+            rightClock();
+            topClock180();
+            rightIClock();
+        } else if(matriz_top[2][2] == 2 && matriz_left[0][2] == 2 && matriz_right[0][2] == 2 && matriz_back[0][0] == 2){
+            // 1º CASO
+            // U R U R' U R U2 R'
+            topClock();
+            rightClock();
+            topClock();
+            rightIClock();
+            topClock();
+            rightClock();
+            topClock180();
+            rightIClock();
+        } else if(matriz_top[0][2] == 2 && matriz_back[0][0] == 2 && matriz_left[0][2] == 2 && matriz_front[0][2] == 2){
+            // 1º CASO            
+            // U2 R U R' U R U2 R'
+            topClock180();
+            rightClock();
+            topClock();
+            rightIClock();
+            topClock();
+            rightClock();
+            topClock180();
+            rightIClock();            
+        } else if(matriz_top[0][0] == 2 && matriz_left[0][2] == 2 && matriz_front[0][2] == 2 && matriz_right[0][2] == 2){
+            // 1º CASO
+            // U' R U R' U R U2 R'
+            topIClock();
+            rightClock();
+            topClock();
+            rightIClock();
+            topClock();
+            rightClock();
+            topClock180();
+            rightIClock(); 
+        } else if(matriz_top[0][2] == 2 && matriz_left[0][0] == 2 && matriz_front[0][0] == 2 && matriz_right[0][0] == 2){
+            // 2º CASO
+            // R U2 R′ U′ R U′ R′
+            rightClock();
+            topClock180();
+            rightIClock();
+            topIClock();
+            rightClock();
+            topIClock();
+            rightIClock();
+        } else if(matriz_top[0][0] == 2 && matriz_front[0][0] == 2 && matriz_right[0][0] == 2 && matriz_back[0][2] == 2){
+            // 2º CASO
+            // U R U2 R′ U′ R U′ R′
+            topClock();
+            rightClock();
+            topClock180();
+            rightIClock();
+            topIClock();
+            rightClock();
+            topIClock();
+            rightIClock();
+        } else if(matriz_top[2][0] == 2 && matriz_right[0][0] == 2 && matriz_back[0][2] == 2 && matriz_left[0][0] == 2){
+            // 2º CASO
+            // U2 R U2 R′ U′ R U′ R′
+            topClock180();
+            rightClock();
+            topClock180();
+            rightIClock();
+            topIClock();
+            rightClock();
+            topIClock();
+            rightIClock();
+        } else if(matriz_top[2][2] == 2 && matriz_back[0][2] == 2 && matriz_left[0][0] == 2 && matriz_front[0][0] == 2){
+            // 2º CASO
+            // U' R U2 R′ U′ R U′ R′
+            topIClock();
+            rightClock();
+            topClock180();
+            rightIClock();
+            topIClock();
+            rightClock();
+            topIClock();
+            rightIClock();
+        } else if(matriz_right[0][0] == 2 && matriz_right[0][2] == 2 && matriz_front[0][2] == 2 && matriz_back[0][2] == 2){
+            // 3º CASO
+            // R U2 R2 U' R2 U' R2 U2 R
+            rightClock();
+            topClock180();
+            rightClock180();
+            topIClock();
+            rightClock180();
+            topIClock();
+            rightClock180();
+            topClock180();
+            rightClock();
+        } else if(matriz_front[0][0] == 2 && matriz_front[0][2] == 2 && matriz_right[0][2] == 2 && matriz_left[0][0] == 2){
+            // 3º CASO
+            // U R U2 R2 U' R2 U' R2 U2 R
+            topClock();
+            rightClock();
+            topClock180();
+            rightClock180();
+            topIClock();
+            rightClock180();
+            topIClock();
+            rightClock180();
+            topClock180();
+            rightClock();
+        } else if(matriz_right[0][0] == 2 && matriz_right[0][2] == 2 && matriz_back[0][0] == 2 && matriz_front[0][0] == 2){
+            // 3º CASO
+            // U2 R U2 R2 U' R2 U' R2 U2 R
+            topClock180();
+            rightClock();
+            topClock180();
+            rightClock180();
+            topIClock();
+            rightClock180();
+            topIClock();
+            rightClock180();
+            topClock180();
+            rightClock();
+        } else if(matriz_back[0][0] == 2 && matriz_back[0][2] == 2 && matriz_left[0][2] == 2 && matriz_right[0][0] == 2){
+            // 3º CASO
+            // U' R U2 R2 U' R2 U' R2 U2 R
+            topIClock();
+            rightClock();
+            topClock180();
+            rightClock180();
+            topIClock();
+            rightClock180();
+            topIClock();
+            rightClock180();
+            topClock180();
+            rightClock();
+        } else if(matriz_front[0][0] == 2 && matriz_front[0][2] == 2 && matriz_back[0][0] == 2 && matriz_back[0][2] == 2){
+            // 4º CASO
+            // R U2 R' U' R U R' U' R U' R'
+            rightClock();
+            topClock180();
+            rightIClock();
+            topIClock();
+            rightClock();
+            topClock();
+            rightIClock();
+            topIClock();
+            rightClock();
+            topIClock();
+            rightIClock();
+        } else if(matriz_left[0][0] == 2 && matriz_left[0][2] == 2 && matriz_right[0][0] == 2 && matriz_right[0][2] == 2){
+            // 4º CASO
+            // U R U2 R' U' R U R' U' R U' R'
+            topClock();
+            rightClock();
+            topClock180();
+            rightIClock();
+            topIClock();
+            rightClock();
+            topClock();
+            rightIClock();
+            topIClock();
+            rightClock();
+            topIClock();
+            rightIClock();
+        } else if(matriz_top[0][0] == 2 && matriz_top[2][0] == 2 && matriz_front[0][2] == 2 && matriz_back[0][2] == 2){
+            // 5º CASO
+            // (R' F' L F) (R F' L' F)
+            rightIClock();
+            frontIClock();
+            leftClock();
+            frontClock();
+            rightClock();
+            frontIClock();
+            leftIClock();
+            frontClock();
+        } else if(matriz_top[2][0] == 2 && matriz_top[2][2] == 2 && matriz_right[0][2] == 2 && matriz_left[0][0] == 2){
+            // 5º CASO
+            // U (R' F' L F) (R F' L' F)
+            topClock();
+            rightIClock();
+            frontIClock();
+            leftClock();
+            frontClock();
+            rightClock();
+            frontIClock();
+            leftIClock();
+            frontClock();
+        } else if(matriz_top[2][2] == 2 && matriz_top[0][2] == 2 && matriz_front[0][0] == 2 && matriz_back[0][0] == 2){
+            // 5º CASO
+            // U2 (R' F' L F) (R F' L' F)
+            topClock180();
+            rightIClock();
+            frontIClock();
+            leftClock();
+            frontClock();
+            rightClock();
+            frontIClock();
+            leftIClock();
+            frontClock();
+        } else if(matriz_top[0][0] == 2 && matriz_top[0][2] == 2 && matriz_left[0][2] == 2 && matriz_right[0][0] == 2){
+            // 5º CASO
+            // U' (R' F' L F) (R F' L' F)
+            topIClock();
+            rightIClock();
+            frontIClock();
+            leftClock();
+            frontClock();
+            rightClock();
+            frontIClock();
+            leftIClock();
+            frontClock();
+        } else if(matriz_top[0][0] == 2 && matriz_top[0][2] == 2 && matriz_front[0][0] == 2 && matriz_front[0][2] == 2){
+            // 6º CASO
+            // R2 D R' U2 R D' R' U2 R'
+            rightClock180();
+            bottomClock();
+            rightIClock();
+            topClock180();
+            rightClock();
+            bottomIClock();
+            rightIClock();
+            topClock180();
+            rightIClock();
+        } else if(matriz_top[0][0] == 2 && matriz_top[2][0] == 2 && matriz_right[0][0] == 2 && matriz_right[0][2] == 2){
+            // 6º CASO
+            // U R2 D R' U2 R D' R' U2 R'
+            topClock();
+            rightClock180();
+            bottomClock();
+            rightIClock();
+            topClock180();
+            rightClock();
+            bottomIClock();
+            rightIClock();
+            topClock180();
+            rightIClock();
+        } else if(matriz_top[2][0] == 2 && matriz_top[2][2] == 2 && matriz_back[0][0] == 2 && matriz_back[0][2] == 2){
+            // 6º CASO
+            // U2 R2 D R' U2 R D' R' U2 R'
+            topClock180();
+            rightClock180();
+            bottomClock();
+            rightIClock();
+            topClock180();
+            rightClock();
+            bottomIClock();
+            rightIClock();
+            topClock180();
+            rightIClock();
+        } else if(matriz_top[0][2] == 2 && matriz_top[2][2] == 2 && matriz_left[0][0] == 2 && matriz_left[0][2] == 2){
+            // 6º CASO
+            // U' R2 D R' U2 R D' R' U2 R'
+            topIClock();
+            rightClock180();
+            bottomClock();
+            rightIClock();
+            topClock180();
+            rightClock();
+            bottomIClock();
+            rightIClock();
+            topClock180();
+            rightIClock();
+        } else if(matriz_top[0][0] == 2 && matriz_top[2][2] == 2 && matriz_front[0][0] == 2 && matriz_right[0][2] == 2){
+            // 7º CASO
+            // (R' F R B') (R' F' R B)
+            rightIClock();
+            frontClock();
+            rightClock();
+            backIClock();
+            rightIClock();
+            frontIClock();
+            rightClock();
+            backClock();
+        } else if(matriz_top[2][0] == 2 && matriz_top[0][2] == 2 && matriz_right[0][0] == 2 && matriz_back[0][0] == 2){
+            // 7º CASO
+            // U (R' F R B') (R' F' R B)
+            topClock();
+            rightIClock();
+            frontClock();
+            rightClock();
+            backIClock();
+            rightIClock();
+            frontIClock();
+            rightClock();
+            backClock();
+        } else if(matriz_top[0][0] == 2 && matriz_top[2][2] == 2 && matriz_left[0][2] == 2 && matriz_back[0][2] == 2){
+            // 7º CASO
+            // U2     (R' F R B') (R' F' R B)
+            topClock180();
+            rightIClock();
+            frontClock();
+            rightClock();
+            backIClock();
+            rightIClock();
+            frontIClock();
+            rightClock();
+            backClock();
+        } else if(matriz_top[2][0] == 2 && matriz_top[0][2] == 2 && matriz_front[0][2] == 2 && matriz_left[0][0] == 2){
+            // 7º CASO
+            // U'     (R' F R B') (R' F' R B)
+            topIClock();
+            rightIClock();
+            frontClock();
+            rightClock();
+            backIClock();
+            rightIClock();
+            frontIClock();
+            rightClock();
+            backClock();
+        }
+        
+    }
+    
+    
+    
 }

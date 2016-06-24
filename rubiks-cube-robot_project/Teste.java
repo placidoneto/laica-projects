@@ -77,6 +77,8 @@ public class Teste {
         cubo.segundaCamada();
         cubo.cruzAmarela();
         cubo.orientacaoCantos();
+        cubo.permutacoesDosCantos();
+        
 
         cubo.exibir_Cubo();
 

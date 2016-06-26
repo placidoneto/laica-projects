@@ -78,6 +78,8 @@ public class Teste {
         cubo.cruzAmarela();
         cubo.orientacaoCantos();
         cubo.permutacoesDosCantos();
+        cubo.permutacoesDosMeios();
+        
         
 
         cubo.exibir_Cubo();

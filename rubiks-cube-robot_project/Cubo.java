@@ -11,11 +11,9 @@ public class Cubo {
     private int aux2;
     String historyMoviments = "";
 
-
     public String getHistoryMoviments() {
         return historyMoviments;
     }
-    
 
     public Cubo(Face front, Face back, Face top, Face bottom, Face left, Face rigth) {
         this.front = front;
@@ -206,8 +204,6 @@ public class Cubo {
 
     }
 
-    
-    
     public void primeiraCamada() {
 
         int matriz_front[][] = front.getFace();
@@ -1011,10 +1007,7 @@ public class Cubo {
         }
 
     }
-    
-    
-    
-    
+
     public void segundaCamada() {
 
         int matriz_front[][] = front.getFace();
@@ -1039,7 +1032,7 @@ public class Cubo {
             leftIClock();
             topIClock();
             leftClock();
-        } else if(matriz_front[0][1] == 3 && matriz_top[2][1] == 4){
+        } else if (matriz_front[0][1] == 3 && matriz_top[2][1] == 4) {
             topClock();
             rightClock();
             topIClock();
@@ -1048,7 +1041,7 @@ public class Cubo {
             frontIClock();
             topClock();
             frontClock();
-        } else if(matriz_left[1][2] == 3 && matriz_front[1][0] == 4){
+        } else if (matriz_left[1][2] == 3 && matriz_front[1][0] == 4) {
             leftIClock();
             topIClock();
             leftClock();
@@ -1063,7 +1056,7 @@ public class Cubo {
             leftIClock();
             topClock();
             leftClock();
-        } else if(matriz_left[1][0] == 3 && matriz_back[1][0] == 4){
+        } else if (matriz_left[1][0] == 3 && matriz_back[1][0] == 4) {
             backIClock();
             topIClock();
             backClock();
@@ -1078,7 +1071,7 @@ public class Cubo {
             backIClock();
             topIClock();
             backClock();
-        } else if(matriz_left[0][1] == 3 && matriz_top[1][0] == 4){
+        } else if (matriz_left[0][1] == 3 && matriz_top[1][0] == 4) {
             rightClock();
             topIClock();
             rightIClock();
@@ -1086,7 +1079,7 @@ public class Cubo {
             frontIClock();
             topClock();
             frontClock();
-        } else if(matriz_right[1][0] == 3 && matriz_front[1][2] == 4){
+        } else if (matriz_right[1][0] == 3 && matriz_front[1][2] == 4) {
             rightClock();
             topClock();
             rightIClock();
@@ -1098,7 +1091,7 @@ public class Cubo {
             frontIClock();
             topIClock();
             frontClock();
-        } else if(matriz_right[0][1] == 3 && matriz_top[1][2] == 4){
+        } else if (matriz_right[0][1] == 3 && matriz_top[1][2] == 4) {
             topClock180();
             rightClock();
             topIClock();
@@ -1107,7 +1100,7 @@ public class Cubo {
             frontIClock();
             topClock();
             frontClock();
-        } else if(matriz_right[1][2] == 3 && matriz_back[1][2] == 4){
+        } else if (matriz_right[1][2] == 3 && matriz_back[1][2] == 4) {
             backClock();
             topClock();
             backIClock();
@@ -1121,8 +1114,8 @@ public class Cubo {
             rightIClock();
             backClock();
             topIClock();
-            backIClock();            
-        } else if(matriz_back[1][0] == 3 && matriz_left[1][0] == 4){
+            backIClock();
+        } else if (matriz_back[1][0] == 3 && matriz_left[1][0] == 4) {
             backIClock();
             topIClock();
             backClock();
@@ -1136,7 +1129,7 @@ public class Cubo {
             backIClock();
             topClock180();
             backClock();
-        } else if(matriz_back[1][2] == 3 && matriz_right[1][2] == 4){
+        } else if (matriz_back[1][2] == 3 && matriz_right[1][2] == 4) {
             backClock();
             topIClock();
             backIClock();
@@ -1150,7 +1143,7 @@ public class Cubo {
             backClock();
             topClock();
             backIClock();
-        } else if(matriz_back[0][1] == 3 && matriz_top[0][1] == 4){
+        } else if (matriz_back[0][1] == 3 && matriz_top[0][1] == 4) {
             topIClock();
             rightClock();
             topIClock();
@@ -1159,7 +1152,7 @@ public class Cubo {
             frontIClock();
             topClock();
             frontClock();
-        } else if(matriz_top[2][1] == 3 && matriz_front[0][1] == 4){
+        } else if (matriz_top[2][1] == 3 && matriz_front[0][1] == 4) {
             topClock180();
             frontIClock();
             topClock();
@@ -1168,7 +1161,7 @@ public class Cubo {
             rightClock();
             topIClock();
             rightIClock();
-        } else if(matriz_top[1][0] == 3 && matriz_left[0][1] == 4){
+        } else if (matriz_top[1][0] == 3 && matriz_left[0][1] == 4) {
             topClock();
             frontIClock();
             topClock();
@@ -1177,7 +1170,7 @@ public class Cubo {
             rightClock();
             topIClock();
             rightIClock();
-        } else if(matriz_top[1][2] == 3 && matriz_right[0][1] == 4){
+        } else if (matriz_top[1][2] == 3 && matriz_right[0][1] == 4) {
             topIClock();
             frontIClock();
             topClock();
@@ -1186,7 +1179,7 @@ public class Cubo {
             rightClock();
             topIClock();
             rightIClock();
-        } else if(matriz_top[0][1] == 3 && matriz_back[0][1] == 4){
+        } else if (matriz_top[0][1] == 3 && matriz_back[0][1] == 4) {
             frontIClock();
             topClock();
             frontClock();
@@ -1195,9 +1188,8 @@ public class Cubo {
             topIClock();
             rightIClock();
         }
-        
+
         //(3, 6)
-        
         if (matriz_front[0][1] == 3 && matriz_top[2][1] == 6) {
             topIClock();
             leftIClock();
@@ -1339,9 +1331,9 @@ public class Cubo {
             leftIClock();
             topClock();
             leftClock();
-        }
-
-
+        } 
+        
+        
         //(6, 5)
         
         if(matriz_front[0][1] == 6 && matriz_top[2][1] == 5){
@@ -1456,7 +1448,8 @@ public class Cubo {
             topClock();
             backClock();
         }
-
+        
+        
         //(4, 5)
         
         if(matriz_front[0][1] == 4 && matriz_top[2][1] == 5){
@@ -1542,9 +1535,8 @@ public class Cubo {
             topIClock();
             backIClock();
         }
-   
+        
     }
-    
     
     
     public void cruzAmarela(){
@@ -1555,6 +1547,11 @@ public class Cubo {
         int matriz_top[][] = top.getFace();
         int matriz_back[][] = back.getFace();
         int matriz_bottom[][] = bottom.getFace();
+        
+        
+        
+        // RESOLVENDO A CRUZ AMARELA
+        
         
         // Se só tiver peça amarela no centro
         if(matriz_top[0][1] != 2 && matriz_top[1][0] != 2 && matriz_top[1][2] != 2 && matriz_top[2][1] != 2){
@@ -1628,10 +1625,14 @@ public class Cubo {
             frontIClock();
         }
         
+        
+        
+        
+        //ORIENTAÇÕES DOS CANTOS
+        
+        
     }
-    
-    
-    
+
     
     public void orientacaoCantos(){
         
@@ -1643,6 +1644,8 @@ public class Cubo {
         int matriz_back[][] = back.getFace();
         int matriz_bottom[][] = bottom.getFace();
     
+        
+       
         
         if(matriz_top[2][0] == 2 && matriz_front[0][2] == 2 && matriz_right[0][2] == 2 && matriz_back[0][0] == 2){
             // 1º CASO
@@ -1961,6 +1964,7 @@ public class Cubo {
     
     
     
+    
     public void permutacoesDosCantos(){
     
         int matriz_front[][] = front.getFace();
@@ -2045,6 +2049,223 @@ public class Cubo {
             rightClock180();
         }
     
+    }
+    
+    
+    
+    public void permutacoesDosMeios(){
+    
+        int matriz_front[][] = front.getFace();
+        int matriz_left[][] = left.getFace();
+        int matriz_right[][] = rigth.getFace();
+        int matriz_top[][] = top.getFace();
+        int matriz_back[][] = back.getFace();
+        int matriz_bottom[][] = bottom.getFace();
+        
+        if((matriz_back[0][0] ==  matriz_back[0][1] && matriz_back[0][1] == matriz_back[0][2]) && (matriz_left[0][0] == matriz_left[0][2] && matriz_left[0][2] == matriz_front[0][1]) && (matriz_left[0][1] == matriz_right[0][0] && matriz_right[0][0] == matriz_right[0][2]) && (matriz_front[0][0] == matriz_front[0][2] && matriz_front[0][2] == matriz_right[0][1])){
+            // 1º CASO
+            // F2 U(R' L F2 R L')U F2
+            frontClock180();
+            topClock();
+            rightIClock();
+            leftClock();
+            frontClock180();
+            rightClock();
+            leftIClock();
+            topClock();
+            frontClock180();
+        } else if((matriz_right[0][0] == matriz_right[0][1] && matriz_right[0][1] == matriz_right[0][2]) && (matriz_front[0][0] == matriz_front[0][2] && matriz_front[0][2] == matriz_back[0][1]) && (matriz_front[0][1] == matriz_left[0][0] && matriz_left[0][0] == matriz_left[0][2]) && (matriz_left[0][1] == matriz_back[0][0] && matriz_back[0][0] == matriz_back[0][2])){
+            // 1º CASO
+            // U' F2 U(R' L F2 R L')U F2
+            topIClock();
+            frontClock180();
+            topClock();
+            rightIClock();
+            leftClock();
+            frontClock180();
+            rightClock();
+            leftIClock();
+            topClock();
+            frontClock180();
+        } else if((matriz_front[0][0] == matriz_front[0][1] && matriz_front[0][1] == matriz_front[0][2]) && (matriz_left[0][0] == matriz_left[0][2] && matriz_left[0][2] == matriz_right[0][1]) && (matriz_left[0][1] == matriz_back[0][0] && matriz_back[0][0] == matriz_back[0][2]) && (matriz_back[0][1] == matriz_right[0][0] && matriz_right[0][0] == matriz_right[0][2])){
+            // 1º CASO
+            // U2 F2 U(R' L F2 R L')U F2
+            topClock180();
+            frontClock180();
+            topClock();
+            rightIClock();
+            leftClock();
+            frontClock180();
+            rightClock();
+            leftIClock();
+            topClock();
+            frontClock180();
+        } else if((matriz_left[0][0] == matriz_left[0][1] && matriz_left[0][1] == matriz_left[0][2]) && (matriz_front[0][0] == matriz_front[0][2] && matriz_front[0][2] == matriz_right[0][1]) && (matriz_front[0][1] == matriz_back[0][0] &&  matriz_back[0][0] == matriz_back[0][2]) && (matriz_back[0][1] == matriz_right[0][0] && matriz_right[0][0] == matriz_right[0][2])){
+            // 1º CASO
+            // U F2 U(R' L F2 R L')U F2
+            topClock();
+            frontClock180();
+            topClock();
+            rightIClock();
+            leftClock();
+            frontClock180();
+            rightClock();
+            leftIClock();
+            topClock();
+            frontClock180();
+        } else if((matriz_back[0][0] == matriz_back[0][1] && matriz_back[0][1] == matriz_back[0][2]) && (matriz_right[0][0] == matriz_right[0][2] && matriz_right[0][2] == matriz_front[0][1]) && (matriz_right[0][1] == matriz_left[0][0] && matriz_left[0][0] == matriz_left[0][2]) && (matriz_left[0][1] == matriz_front[0][0] && matriz_front[0][0] == matriz_front[0][2])){
+            // 3º CASO
+            // F2 U'(R' L F2 R L')U' F2
+            frontClock180();
+            topIClock();
+            rightIClock();
+            leftClock();
+            frontClock180();
+            rightClock();
+            leftIClock();
+            topIClock();
+            frontClock180();
+        } else if((matriz_right[0][0] == matriz_right[0][1] && matriz_right[0][1] == matriz_right[0][2]) && (matriz_front[0][0] == matriz_front[0][2] && matriz_front[0][2] == matriz_left[0][1]) && (matriz_front[0][1] == matriz_back[0][0] && matriz_back[0][0] == matriz_back[0][2]) && (matriz_back[0][1] == matriz_left[0][0] && matriz_left[0][0] == matriz_left[0][2])){
+            // 3º CASO
+            // U' F2 U'(R' L F2 R L')U' F2
+            topIClock();
+            frontClock180();
+            topIClock();
+            rightIClock();
+            leftClock();
+            frontClock180();
+            rightClock();
+            leftIClock();
+            topIClock();
+            frontClock180();
+        } else if((matriz_front[0][0] == matriz_front[0][1] && matriz_front[0][1] == matriz_front[0][2]) && (matriz_left[0][0] == matriz_left[0][2] && matriz_left[0][2] == matriz_back[0][1]) && (matriz_left[0][1] == matriz_right[0][0] && matriz_right[0][0] == matriz_right[0][2]) && (matriz_right[0][1] == matriz_back[0][0] && matriz_back[0][0] == matriz_back[0][2])){
+            // 3º CASO
+            // U2 F2 U'(R' L F2 R L')U' F2
+            topClock180();
+            frontClock180();
+            topIClock();
+            rightIClock();
+            leftClock();
+            frontClock180();
+            rightClock();
+            leftIClock();
+            topIClock();
+            frontClock180();
+        } else if((matriz_left[0][0] == matriz_left[0][1] && matriz_left[0][1] == matriz_left[0][2]) && (matriz_back[0][0] == matriz_back[0][2] && matriz_back[0][2] == matriz_right[0][1]) && (matriz_back[0][1] == matriz_front[0][0] && matriz_front[0][0] == matriz_front[0][2]) && (matriz_front[0][1] == matriz_right[0][0] && matriz_right[0][0] == matriz_right[0][2])){
+            // 3º CASO
+            // U F2 U'(R' L F2 R L')U' F2
+            topClock();
+            frontClock180();
+            topIClock();
+            rightIClock();
+            leftClock();
+            frontClock180();
+            rightClock();
+            leftIClock();
+            topIClock();
+            frontClock180();
+        } else if((matriz_back[0][0] == matriz_back[0][2] && matriz_back[0][2] == matriz_left[0][1]) && (matriz_back[0][1] == matriz_left[0][0] && matriz_left[0][0] == matriz_left[0][2]) && (matriz_right[0][0] == matriz_right[0][2] && matriz_right[0][2] == matriz_front[0][1]) && (matriz_right[0][1] == matriz_front[0][0] && matriz_front[0][0] == matriz_front[0][2])){
+            // 2º CASO
+            // R' U' R'  F R F' U R F' U' L' U L F
+            rightIClock();
+            topIClock();
+            rightIClock();
+            frontClock();
+            rightClock();
+            frontIClock();
+            topClock();
+            rightClock();
+            frontIClock();
+            topIClock();
+            leftIClock();
+            topClock();
+            leftClock();
+            frontClock();
+        } else if((matriz_back[0][0] == matriz_back[0][2] && matriz_back[0][2] == matriz_right[0][1]) && (matriz_back[0][1] == matriz_right[0][0] && matriz_right[0][0] == matriz_right[0][2]) && (matriz_front[0][0] == matriz_front[0][2] && matriz_front[0][2] == matriz_left[0][1]) && (matriz_left[0][0] == matriz_left[0][2] && matriz_left[0][2] == matriz_front[0][1])){
+            // 2º CASO
+            // U' R' U' R'  F R F' U R F' U' L' U L F
+            topIClock();
+            rightIClock();
+            topIClock();
+            rightIClock();
+            frontClock();
+            rightClock();
+            frontIClock();
+            topClock();
+            rightClock();
+            frontIClock();
+            topIClock();
+            leftIClock();
+            topClock();
+            leftClock();
+            frontClock();
+        } else if((matriz_back[0][0] == matriz_back[0][2] && matriz_back[0][2] == matriz_left[0][1]) && (matriz_back[0][1] == matriz_left[0][0] && matriz_left[0][0] == matriz_left[0][2]) && (matriz_front[0][0] == matriz_front[0][2] && matriz_front[0][2] == matriz_right[0][1]) && (matriz_front[0][1] == matriz_right[0][0] && matriz_right[0][0] == matriz_right[0][2])){
+            // 2º CASO
+            // U2 R' U' R'  F R F' U R F' U' L' U L F
+            topClock180();
+            rightIClock();
+            topIClock();
+            rightIClock();
+            frontClock();
+            rightClock();
+            frontIClock();
+            topClock();
+            rightClock();
+            frontIClock();
+            topIClock();
+            leftIClock();
+            topClock();
+            leftClock();
+            frontClock();
+        } else if((matriz_front[0][0] == matriz_front[0][2] && matriz_front[0][2] == matriz_left[0][1]) && (matriz_front[0][1] == matriz_left[0][0] && matriz_left[0][0] == matriz_left[0][2]) && (matriz_back[0][0] == matriz_back[0][2] && matriz_back[0][2] == matriz_right[0][1]) && (matriz_back[0][1] == matriz_right[0][0] && matriz_right[0][0] == matriz_right[0][2])){
+            // 2º CASO
+            // U R' U' R'  F R F' U R F' U' L' U L F
+            topClock();
+            rightIClock();
+            topIClock();
+            rightIClock();
+            frontClock();
+            rightClock();
+            frontIClock();
+            topClock();
+            rightClock();
+            frontIClock();
+            topIClock();
+            leftIClock();
+            topClock();
+            leftClock();
+            frontClock();
+        } else if((matriz_back[0][0] == matriz_back[0][2] && matriz_back[0][2] == matriz_front[0][1]) && (matriz_back[0][1] == matriz_front[0][0] && matriz_front[0][0] == matriz_front[0][2]) && (matriz_left[0][0] == matriz_left[0][2] && matriz_left[0][2] == matriz_right[0][1]) && (matriz_right[0][0] == matriz_right[0][2] && matriz_right[0][2] == matriz_left[0][1])){
+            // 4º CASO
+            // (R2 U2)^2 R2 U (R2 U2)^2 R2 U'
+            rightClock180();
+            topClock180();
+            rightClock180();
+            topClock180();
+            rightClock180();
+            topClock();
+            rightClock180();
+            topClock180();
+            rightClock180();
+            topClock180();
+            rightClock180();
+            topIClock();
+        } 
+        
+        
+        
+        //Mover o topo para "juntar" as cores certas
+        
+        if(matriz_front[1][1] == matriz_right[0][0]){
+            topClock();
+        } else if(matriz_front[1][1] == matriz_back[0][0]){
+            topClock180();
+        } else if(matriz_front[1][1] == matriz_left[0][0]){
+            topIClock();
+        }
+        
+        
+        
     }
     
     

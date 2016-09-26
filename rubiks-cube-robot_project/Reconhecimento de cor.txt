@@ -57,19 +57,17 @@ void ExibirMatriz(int matriz[3][3]){
 
       int i, j;
         for (i=0; i<3; i++) {
-           Serial.print(" ");
-           for (j=0; j<=sizeof(matriz[i])+2; j++) {
-             
-           Serial.println(matriz[i][j]);
-                  
+           for (j=0; j<3; j++) {
+              Serial.print(matriz[i][j]);
               
            }
-           Serial.println(" ");
+           
       }
   
-  
+  Serial.print(" ");
   
   }
+
 
 void loop() {
 

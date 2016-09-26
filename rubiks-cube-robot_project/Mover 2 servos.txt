@@ -1,0 +1,63 @@
+#include <Servo.h>
+
+Servo  servoGarra;          // Define left servo
+Servo servoControle;         // Define right servo
+
+void setup() { 
+  servoGarra.attach(9);  // Set left servo to digital pin 10
+  servoControle.attach(10);  // Set right servo to digital pin 9
+} 
+
+  
+void loop() {            // Loop through motion tests
+
+ turnGarra0();
+  delay(500);
+ turnGarra90();
+  delay(500);
+  turnGarra180();
+  delay(500);
+  turnGarra90();
+  delay(500);
+
+   turnControl0();
+  delay(500);
+   turnControl90();
+  delay(500);
+   turnControl180();
+  delay(500);
+   turnControl90();
+  delay(500);
+  
+}
+
+
+void turnControl90(){
+  
+  servoControle.write(90);
+}
+void turnControl0(){
+  
+  servoControle.write(0);
+}
+void turnControl180(){
+  
+  servoControle.write(180);
+}
+void turnGarra90(){
+  
+  servoGarra.write(90);
+}
+void turnGarra0(){
+  
+  servoGarra.write(0);
+}
+void turnGarra180(){
+  
+  servoGarra.write(180);
+}
+
+
+void stopRobot() {
+  
+}

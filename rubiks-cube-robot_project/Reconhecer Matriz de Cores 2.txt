@@ -55,21 +55,20 @@ void MontarMatriz(int matriz2[3][3]){
 
 
 
-  
-void ExibirMatriz(int matriz[3][3]){
-
-      int i, j;
-        for (i=0; i<3; i++) {
-           for (j=0; j<3; j++) {
-              Serial.print(matriz[i][j]);
-              
-           }
-           
-      }
-  
-  Serial.print(" ");
-  
-  }
+    
+void exibir_Face(int matriz[3][3]) {
+      
+       
+       
+        Serial.print(matriz[0][0]); Serial.print("        ");  Serial.print(matriz[0][1]); Serial.print("        "); Serial.print(matriz[0][2]);
+        Serial.print("\n");
+        Serial.print(matriz[1][0]) ;  Serial.print("        ");  Serial.print(matriz[1][1]);  Serial.print("        "); Serial.print(matriz[1][2]);
+        Serial.print("\n");
+        Serial.print(matriz[2][0]); Serial.print("        ");  Serial.print(matriz[2][1]); Serial.print("        "); Serial.print(matriz[2][2]);
+        Serial.print("        ");
+        Serial.print("        ");
+        Serial.print("        ");
+    }
 
  void add(){
      
@@ -345,14 +344,22 @@ void loop() {
 
    if(count == 14){
       MontarMatriz(Front); 
-      ExibirMatriz(Front);
+      Serial.print("Front");
+      Serial.print("\n");
+      exibir_Face(Front);
+      Serial.print("\n");
+      Serial.print("\n");
 
           }
 
           
           
           
-          ExibirMatriz(Aux);
+          Serial.print("AUX");
+          Serial.print("\n");
+          exibir_Face(Aux);
+          Serial.print("\n");
+          Serial.print("\n");
           add();
 
   }  

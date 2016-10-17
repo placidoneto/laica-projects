@@ -56,18 +56,36 @@ void MontarMatriz(int matriz2[3][3]){
 
 
     
-void exibir_Face(int matriz[3][3]) {
+void exibir_Face() {
+        Serial.print("Top");Serial.print("\n");
+        Serial.print(Top[0][0]); Serial.print("        ");  Serial.print(Top[0][1]); Serial.print("        "); Serial.print(Top[0][2]);
+        Serial.print("\n");
+        Serial.print(Top[1][0]) ;  Serial.print("        ");  Serial.print(Top[1][1]);  Serial.print("        "); Serial.print(Top[1][2]);
+        Serial.print("\n");
+        Serial.print(Top[2][0]); Serial.print("        ");  Serial.print(Top[2][1]); Serial.print("        "); Serial.print(Top[2][2]);
+        Serial.print("        ");
+        Serial.print("\n");
+
       
-       
-       
-        Serial.print(matriz[0][0]); Serial.print("        ");  Serial.print(matriz[0][1]); Serial.print("        "); Serial.print(matriz[0][2]);
+       Serial.print("Left");Serial.print("                       ");Serial.print("Front");Serial.print("                       ");Serial.print("Rigth");Serial.print("\n");                                                                                                                                                                                                                                               
+       Serial.print(Left[0][0]); Serial.print("        ");  Serial.print(Left[0][1]); Serial.print("        "); Serial.print(Left[0][2]);    Serial.print("        ");                Serial.print(Front[0][0]); Serial.print("        ");  Serial.print(Front[0][1]); Serial.print("        "); Serial.print(Front[0][2]);   Serial.print("        ");      Serial.print(Rigth[0][0]); Serial.print("        ");  Serial.print(Rigth[0][1]); Serial.print("        "); Serial.print(Rigth[0][2]);
+       Serial.print("\n");                                                                                                                                  
+       Serial.print(Left[1][0]) ;  Serial.print("        ");  Serial.print(Left[1][1]);  Serial.print("        "); Serial.print(Left[1][2]);   Serial.print("        ");              Serial.print(Front[1][0]) ;  Serial.print("        ");  Serial.print(Front[1][1]);  Serial.print("        "); Serial.print(Front[1][2]);   Serial.print("        ");  Serial.print(Rigth[1][0]) ;  Serial.print("        ");  Serial.print(Rigth[1][1]);  Serial.print("        "); Serial.print(Rigth[1][2]); 
+       Serial.print("\n");                                                                                                                                  
+       Serial.print(Left[2][0]); Serial.print("        ");  Serial.print(Left[2][1]); Serial.print("        "); Serial.print(Left[2][2]);       Serial.print("        ");             Serial.print(Front[2][0]); Serial.print("        ");  Serial.print(Front[2][1]); Serial.print("        "); Serial.print(Front[2][2]);      Serial.print("        ");     Serial.print(Rigth[2][0]); Serial.print("        ");  Serial.print(Rigth[2][1]); Serial.print("        "); Serial.print(Rigth[2][2]);
+       Serial.print("        ");
+       Serial.print("\n");                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                  
+
+        Serial.print("Bottom");Serial.print("\n");
+        Serial.print(Bottom[0][0]); Serial.print("        ");  Serial.print(Bottom[0][1]); Serial.print("        "); Serial.print(Bottom[0][2]);
         Serial.print("\n");
-        Serial.print(matriz[1][0]) ;  Serial.print("        ");  Serial.print(matriz[1][1]);  Serial.print("        "); Serial.print(matriz[1][2]);
+        Serial.print(Bottom[1][0]) ;  Serial.print("        ");  Serial.print(Bottom[1][1]);  Serial.print("        "); Serial.print(Bottom[1][2]);
         Serial.print("\n");
-        Serial.print(matriz[2][0]); Serial.print("        ");  Serial.print(matriz[2][1]); Serial.print("        "); Serial.print(matriz[2][2]);
+        Serial.print(Bottom[2][0]); Serial.print("        ");  Serial.print(Bottom[2][1]); Serial.print("        "); Serial.print(Bottom[2][2]);
         Serial.print("        ");
-        Serial.print("        ");
-        Serial.print("        ");
+       
+        
     }
 
  void add(){
@@ -344,22 +362,14 @@ void loop() {
 
    if(count == 14){
       MontarMatriz(Front); 
-      Serial.print("Front");
       Serial.print("\n");
-      exibir_Face(Front);
+      exibir_Face();
       Serial.print("\n");
       Serial.print("\n");
 
           }
 
-          
-          
-          
-          Serial.print("AUX");
-          Serial.print("\n");
-          exibir_Face(Aux);
-          Serial.print("\n");
-          Serial.print("\n");
+
           add();
 
   }  

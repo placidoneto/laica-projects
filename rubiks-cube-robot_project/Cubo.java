@@ -1,5 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cubo {
+    private static final int FACE_FRONT = 3;
+    private static final int FACE_BACK = 5;
+    private static final int FACE_RIGHT = 4;
+    private static final int FACE_LEFT = 6;
+    private static final int FACE_TOP = 2;
+    private static final int FACE_BOTTOM = 1;
 
     private Face front;
     private Face back;
@@ -7,12 +15,21 @@ public class Cubo {
     private Face bottom;
     private Face left;
     private Face rigth;
+
     private int aux1;
     private int aux2;
+
     String historyMoviments = "";
+
+    private List<Rotation> history;
 
     public String getHistoryMoviments() {
         return historyMoviments;
+    }
+
+    public List<Rotation> getHistory()
+    {
+        return history;
     }
 
     public Cubo(Face front, Face back, Face top, Face bottom, Face left, Face rigth) {
@@ -22,9 +39,11 @@ public class Cubo {
         this.bottom = bottom;
         this.left = left;
         this.rigth = rigth;
+        this.history = new ArrayList<>();
     }
 
-    public void frontClock() {
+    private void _frontClock()
+    {
         front.turnClock();
         int aux1[] = top.getBottom();
         int aux2[] = rigth.getLeftI();
@@ -36,20 +55,29 @@ public class Cubo {
         historyMoviments += "frontClock\n";
     }
 
+
+    public void frontClock() {
+
+        this._frontClock();
+        this.history.add(new Rotation(FACE_FRONT));
+    }
+
     public void frontClock180() {
-        frontClock();
-        frontClock();
+        _frontClock();
+        _frontClock();
+        this.history.add(new Rotation(FACE_FRONT, 2));
         //historyMoviments += "frontClock180\n";
     }
 
     public void frontIClock() {
-        frontClock();
-        frontClock();
-        frontClock();
+        _frontClock();
+        _frontClock();
+        _frontClock();
+        this.history.add(new Rotation(FACE_FRONT, -1));
         //historyMoviments += "frontIClock\n";
     }
 
-    public void rightClock() {
+    private void _rightClock() {
         rigth.turnClock();
         int aux1[] = top.getRightI();
         int aux2[] = back.getRightI();
@@ -61,20 +89,28 @@ public class Cubo {
         historyMoviments += "rightClock\n";
     }
 
+    public void rightClock()
+    {
+        _rightClock();
+        this.history.add(new Rotation(FACE_RIGHT));
+    }
+
     public void rightClock180() {
-        rightClock();
-        rightClock();
+        _rightClock();
+        _rightClock();
+        this.history.add(new Rotation(FACE_RIGHT, 2));
         //historyMoviments += "rightClock180\n";
     }
 
     public void rightIClock() {
-        rightClock();
-        rightClock();
-        rightClock();
+        _rightClock();
+        _rightClock();
+        _rightClock();
+        this.history.add(new Rotation(FACE_RIGHT, -1));
         //historyMoviments += "rightIClock\n";
     }
 
-    public void leftClock() {
+    private void _leftClock() {
         left.turnClock();
         int aux1[] = top.getLeft();
         int aux2[] = front.getLeft();
@@ -86,20 +122,28 @@ public class Cubo {
         historyMoviments += "leftClock\n";
     }
 
+    public void leftClock()
+    {
+        _leftClock();
+        this.history.add(new Rotation(FACE_LEFT));
+    }
+
     public void leftClock180() {
-        leftClock();
-        leftClock();
+        _leftClock();
+        _leftClock();
+        this.history.add(new Rotation(FACE_LEFT, 2));
         //historyMoviments += "leftClock180\n";
     }
 
     public void leftIClock() {
-        leftClock();
-        leftClock();
-        leftClock();
+        _leftClock();
+        _leftClock();
+        _leftClock();
         //historyMoviments += "leftIClock\n";
+        this.history.add(new Rotation(FACE_LEFT, -1));
     }
 
-    public void bottomIClock() {
+    private void _bottomIClock() {
         bottom.turnIClock();
         int aux1[] = rigth.getBottom();
         int aux2[] = front.getBottom();
@@ -111,20 +155,29 @@ public class Cubo {
         historyMoviments += "bottomIClock\n";
     }
 
+    public void bottomIClock()
+    {
+        _bottomIClock();
+        this.history.add(new Rotation(FACE_BOTTOM, -1));
+    }
+
     public void bottomClock180() {
-        bottomIClock();
-        bottomIClock();
+        _bottomIClock();
+        _bottomIClock();
         //historyMoviments += "bottomClock180\n";
+        this.history.add(new Rotation(FACE_BOTTOM, 2));
     }
 
     public void bottomClock() {
-        bottomIClock();
-        bottomIClock();
-        bottomIClock();
+        _bottomIClock();
+        _bottomIClock();
+        _bottomIClock();
         //historyMoviments += "bottomClock\n";
+        this.history.add(new Rotation(FACE_BOTTOM));
     }
 
-    public void backIClock() {
+    private void _backIClock()
+    {
         back.turnClock();
         int aux1[] = top.getTop();
         int aux2[] = rigth.getRightI();
@@ -136,22 +189,28 @@ public class Cubo {
         historyMoviments += "backIClock\n";
     }
 
+    public void backIClock() {
+        _backIClock();
+        this.history.add(new Rotation(FACE_BACK, -1));
+    }
+
     public void backClock180() {
-        backIClock();
-        backIClock();
+        _backIClock();
+        _backIClock();
         //historyMoviments += "backClock180\n";
+        this.history.add(new Rotation(FACE_BACK, 2));
     }
 
     public void backClock() {
-        backIClock();
-        backIClock();
-        backIClock();
+        _backIClock();
+        _backIClock();
+        _backIClock();
         //historyMoviments += "backClock\n";
-
+        this.history.add(new Rotation(FACE_BACK));
     }
 
-    public void topClock() {
-
+    private void _topClock()
+    {
         top.turnClock();
         int aux1[] = rigth.getTop();
         int aux2[] = front.getTop();
@@ -163,20 +222,27 @@ public class Cubo {
         historyMoviments += "topClock\n";
     }
 
+    public void topClock() {
+        _topClock();
+        this.history.add(new Rotation(FACE_TOP));
+    }
+
     public void topClock180() {
-        topClock();
-        topClock();
+        _topClock();
+        _topClock();
         //historyMoviments += "topClock180\n";
+        this.history.add(new Rotation(FACE_TOP, 2));
     }
 
     public void topIClock() {
-        topClock();
-        topClock();
-        topClock();
+        _topClock();
+        _topClock();
+        _topClock();
         //historyMoviments += "topIClock\n";
+        this.history.add(new Rotation(FACE_TOP, -1));
     }
 
-    public void exibir_Cubo() {
+    public void exibirCubo() {
         int matriz_front[][] = front.getFace();
         int matriz_left[][] = left.getFace();
         int matriz_right[][] = rigth.getFace();
@@ -2263,11 +2329,15 @@ public class Cubo {
         } else if(matriz_front[1][1] == matriz_left[0][0]){
             topIClock();
         }
-        
-        
-        
     }
-    
-    
-    
+
+    public void solve()
+    {
+        this.primeiraCamada();
+        this.segundaCamada();
+        this.cruzAmarela();
+        this.orientacaoCantos();
+        this.permutacoesDosCantos();
+        this.permutacoesDosMeios();
+    }
 }

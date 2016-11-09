@@ -70,7 +70,7 @@ public class Teste {
         cubo.topClock180();
         cubo.backIClock();
         cubo.bottomClock();
-        cubo.rightClock();
+        cubo._rightClock();
         
         
         cubo.primeiraCamada();
@@ -82,7 +82,7 @@ public class Teste {
         
         
 
-        cubo.exibir_Cubo();
+        cubo.exibirCubo();
 
     }
 

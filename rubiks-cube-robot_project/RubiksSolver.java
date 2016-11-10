@@ -1,8 +1,8 @@
 //Autoras: Camila Jordana e Helora Dana
 
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.*;
 
 public class RubiksSolver
 {
@@ -22,6 +22,23 @@ public class RubiksSolver
         for (int i = 0; i < data.length(); ++i)
         {
             face[i / 3][i % 3] = Integer.parseInt(new String(new char[]{ data.charAt(i) }));
+        }
+    }
+
+    private static void send(DatagramSocket clientSocket, InetAddress ipaddress, String message) throws IOException {
+        byte[] sendData = message.getBytes("UTF-8");
+        DatagramPacket sendPacket = new DatagramPacket(sendData, message.length(), ipaddress, 4572);
+        clientSocket.send(sendPacket);
+    }
+
+    private static void sendToFrontEnd(DatagramSocket clientSocket, InetAddress ipaddress, Cubo cubo) throws IOException, InterruptedException {
+        String json;
+        for (Rotation r : cubo.getHistory())
+        {
+            json = "{\"name\":\"rotate\", \"params\": { \"face\": \"" + r.getFaceAsString() + "\", \"times\": " + String.valueOf(r.getAmount()) + ", \"duration\":0.5}}";
+            System.out.println(json);
+            send(clientSocket, ipaddress, json);
+            Thread.sleep(100);
         }
     }
 
@@ -57,6 +74,11 @@ public class RubiksSolver
 
             Cubo cubo = new Cubo(face_Front, face_Back, face_Top, face_Bottom, face_Left, face_Right);
 
+            cubo.exibirCubo();
+
+            DatagramSocket clientSocket = new DatagramSocket();
+            InetAddress ipaddress = InetAddress.getByName("localhost");
+
             cubo.frontClock();
             cubo.leftIClock();
             cubo.topClock180();
@@ -64,24 +86,23 @@ public class RubiksSolver
             cubo.bottomClock();
             cubo.rightClock();
 
+            System.out.println("Embaralhando!");
+            message(clientSocket, ipaddress, "Embaralhando");
+            sendToFrontEnd(clientSocket, ipaddress, cubo);
+            Thread.sleep(cubo.getHistory().size() * 500 + 1000);
+
+            System.out.println("Resolvendo!");
+            message(clientSocket, ipaddress, "Resolvendo");
+            cubo.getHistory().clear();
             cubo.solve();
+            cubo.primeiraCamada();
             cubo.exibirCubo();
-
-            // System.out.println(cubo.getHistoryMoviments());
-
-            DatagramSocket clientSocket = new DatagramSocket();
-            InetAddress IPAddress = InetAddress.getByName("localhost");
-            byte[] sendData;
-            String json;
-            for (Rotation r : cubo.getHistory())
-            {
-                json = "{\"name\":\"rotate\", \"params\": { \"face\": \"" + r.getFaceAsString() + "\", \"times\": " + String.valueOf(r.getAmount()) + ", \"duration\":0.5}}";
-                sendData = json.getBytes("UTF-8");
-                System.out.println(json);
-                DatagramPacket sendPacket = new DatagramPacket(sendData, json.length(), IPAddress, 4572);
-                clientSocket.send(sendPacket);
-                Thread.sleep(20);
-            }
+            sendToFrontEnd(clientSocket, ipaddress, cubo);
         }
+    }
+
+    private static void message(DatagramSocket clientSocket, InetAddress ipaddress, String mensagem) throws InterruptedException, IOException {
+        send(clientSocket, ipaddress, "{\"name\":\"message\",\"params\":{\"message\":\"" + mensagem + "\"}}");
+        Thread.sleep(100);
     }
 }

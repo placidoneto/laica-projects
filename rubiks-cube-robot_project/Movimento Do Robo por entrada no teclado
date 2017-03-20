@@ -1,0 +1,112 @@
+#include <EEPROM.h>
+
+//Programa: Sensor de velocidade Arduino LM393
+//Pino ligado ao pino D0 do sensor
+int pino_D0 = 2;
+int pulso;
+int ena = 44;
+int in1 = 45;
+int in2 = 46;
+int fim_movimento = 1;
+
+
+void parar(){
+   analogWrite(ena, 0);
+   digitalWrite(in1, HIGH);
+   digitalWrite(in2, HIGH);
+  }
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(pino_D0, INPUT);
+  pulso = 0;
+}
+
+void loop()
+{
+char tecla;
+tecla = Serial.read();
+//TECLAS 1 E 2 MOVIMENTO DA BASE 
+ if (tecla == '1') {
+ fim_movimento = 1;
+ Serial.println("Giro 90 graus livre");
+ Serial.println("Cubo em movimento..."); 
+ anda_90livre(); 
+}
+ if (tecla == '2') {
+ fim_movimento = 1;
+ Serial.println("Giro 90 graus com garra");
+ Serial.println("Cubo em movimento..."); 
+ anda_90garra(); 
+}
+
+//TECLA 3 GARRA NA POSICAO INICIAL
+//TECLA 4 GARRA SEGURANDO O CUBO
+//TECLA 5 GARRA EMPURRANDO O CUBO
+ 
+if (tecla == '3'){
+ digitalWrite(49, HIGH);
+ delay(10); 
+  }
+else {
+ digitalWrite(49, LOW);   
+  }
+if (tecla == '4'){
+ digitalWrite(48, HIGH);
+ delay(10); 
+}
+else{
+ digitalWrite(48, LOW);  
+  }
+if (tecla == '5'){
+ digitalWrite(50, HIGH); 
+}
+else{
+ digitalWrite(50, LOW);  
+  }
+ digitalWrite(49, LOW);
+ digitalWrite(48, LOW);
+ digitalWrite(50, LOW);
+
+}
+
+void anda_90livre(){
+
+ pulso = digitalRead(pino_D0);
+ while (pulso == 1 && fim_movimento == 1) {
+  analogWrite(ena, 60);
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);  
+  pulso = digitalRead(pino_D0);
+ }
+ parar();
+ delay(20);
+ analogWrite(ena, 40);
+ digitalWrite(in1, HIGH);
+ digitalWrite(in2, LOW);  
+ delay(240);
+ parar();
+ fim_movimento = 0;
+ Serial.println("Cubo Parado");
+}
+
+void anda_90garra(){
+ Serial.println(pulso);  
+ pulso = digitalRead(pino_D0);
+ while (pulso == 1 && fim_movimento == 1) {
+  analogWrite(ena, 70);
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);  
+  pulso = digitalRead(pino_D0);
+
+ }
+ parar();
+ delay(800);
+ analogWrite(ena, 40);
+ digitalWrite(in1, HIGH);
+ digitalWrite(in2, LOW);  
+ delay(240);
+ parar();
+ Serial.println("Cubo Parado");
+}

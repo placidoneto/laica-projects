@@ -1,0 +1,88 @@
+// codigo: Helora e Samara
+#define servo 43
+int pino_D0 = 2;
+int pulso;
+int ena = 44;
+int in1 = 45;
+int in2 = 46;
+int fim_movimento = 1;
+void parar(){
+   analogWrite(ena, 0);
+   digitalWrite(in1, HIGH);
+   digitalWrite(in2, HIGH);
+  }
+void setup() {
+Serial.begin(9600);
+pinMode (servo, OUTPUT);
+pinMode(pino_D0, INPUT);
+pulso = 0;
+digitalWrite(49, LOW);
+digitalWrite(48, LOW);
+digitalWrite(50, LOW);
+}
+void servo90graus(){
+  digitalWrite(servo, HIGH);
+  delayMicroseconds(1200);
+  digitalWrite(servo, LOW);
+  for(int i = 0; i<15; i++) delayMicroseconds(1200);
+  }
+
+void servo50graus(){
+  digitalWrite(servo, HIGH);
+  delayMicroseconds(980);
+  digitalWrite(servo, LOW);
+  for(int i = 0; i<20; i++) delayMicroseconds(980);
+  }
+void servo20graus(){
+  digitalWrite(servo, HIGH);
+  delayMicroseconds(800);
+  digitalWrite(servo, LOW);
+  for(int i = 0; i<24; i++) delayMicroseconds(800);
+  }
+void anda_90livre(){
+
+ pulso = digitalRead(pino_D0);
+ while (pulso == 1 && fim_movimento == 1) {
+  analogWrite(ena, 60);
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);  
+  pulso = digitalRead(pino_D0);
+ }
+ parar();
+ delay(20);
+ analogWrite(ena, 40);
+ digitalWrite(in1, HIGH);
+ digitalWrite(in2, LOW);  
+ delay(240);
+ parar();
+ fim_movimento = 0;
+ Serial.println("Cubo Parado");
+}
+
+void anda_90garra(){
+ Serial.println(pulso);  
+ pulso = digitalRead(pino_D0);
+ while (pulso == 1 && fim_movimento == 1) {
+  analogWrite(ena, 60);
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);  
+  pulso = digitalRead(pino_D0);
+
+ }
+ parar();
+ delay(800); //coloquei esse delay pra ajustar o angulo da base, pra ficar mais reta com a grarra ;)
+ analogWrite(ena, 40);
+ digitalWrite(in1, HIGH);
+ digitalWrite(in2, LOW);  
+ delay(150);
+ parar();
+ Serial.println("Cubo Parado");
+}
+void loop() {
+
+frontIClockservo();
+delay(2000);
+frontClockservo();
+delay(2000);
+
+}

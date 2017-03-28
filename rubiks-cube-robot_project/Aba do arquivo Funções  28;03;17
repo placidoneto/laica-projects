@@ -1,0 +1,41 @@
+void frontIClockservo(){
+  for(char i = 0; i < 30; i++)  servo20graus();
+  for(char i = 0; i < 30; i++) servo90graus(); 
+  delay(100);
+  for(char i = 0; i < 30; i++)  servo20graus();
+  for(char i = 0; i < 30; i++) servo90graus();
+  delay(100);
+  for(char i = 0; i < 30; i++)  servo20graus();
+  for(char i = 0; i < 30; i++) servo90graus();
+  delay(100);
+  for(char i = 0; i < 30; i++) servo50graus();
+  delay(100);
+  anda_90garra();
+  delay(100);
+  for(char i = 0; i < 30; i++) servo90graus();
+  delay(100);
+  for(char i = 0; i < 30; i++)  servo20graus();
+  for(char i = 0; i < 30; i++) servo90graus();  
+  }
+
+void frontClockservo(){
+  for(char i = 0; i < 30; i++)  servo20graus();
+  for(char i = 0; i < 30; i++) servo90graus(); 
+  delay(100);
+  for(char i = 0; i < 30; i++)  servo20graus();
+  for(char i = 0; i < 30; i++) servo90graus();
+  delay(100);
+  for(char i = 0; i < 30; i++)  servo20graus();
+  for(char i = 0; i < 30; i++) servo90graus();
+  delay(100);
+  for(char i = 0; i < 30; i++) servo50graus();
+  delay(100);
+  anda_90garra();
+  anda_90garra();
+  anda_90garra();
+  delay(100);
+  for(char i = 0; i < 30; i++) servo90graus();
+  delay(100);
+  for(char i = 0; i < 30; i++)  servo20graus();
+  for(char i = 0; i < 30; i++) servo90graus();  
+  }

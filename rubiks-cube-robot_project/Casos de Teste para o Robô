@@ -1,0 +1,69 @@
+
+//CASOS DE TESTE
+
+//CASO SIMPLES 1
+/*FRONT, COLOCAR NA CONFIGURAÇÃO ABAIXO E EXECUTAR O CÓDIGO
+
+  LAR ! LAR ! AM
+  VERD! VERD! AM
+  VERD! VERD! VERD
+ */
+rightClockservo();
+topIClockservo();
+rightIClockservo();
+
+//-----------------------
+
+
+//CASO SIMPLES 2
+/*FRONT, COLOCAR NA CONFIGURAÇÃO ABAIXO E EXECUTAR O CÓDIGO 
+
+  VERD ! LAR ! LAR
+   AM  ! VERD! VERD
+   AM  ! VERD! VERD
+ */
+ 
+leftIClockservo();
+topIClockservo();
+leftClockservo();
+
+//-----------------------
+
+//CASO MÉDIO 1
+/*FRONT (PECA DA 2 CAMADA PRA ESQUERDA), COLOCAR NA CONFIGURAÇÃO ABAIXO E EXECUTAR O CÓDIGO
+
+  VERD ! VERM ! LAR
+   AM  ! VERM ! VERM
+  VERM ! VERM ! VERM
+ */
+ 
+topIClockservo();
+leftIClockservo();
+topIClockservo();
+leftClockservo();
+topClockservo();
+frontClockservo();
+topClockservo();
+frontIClockservo();
+
+
+//-----------------------
+
+//CASO MÉDIO 2
+/*FRONT (PECA DA 2 CAMADA PRA DIREITA), COLOCAR NA CONFIGURAÇÃO ABAIXO E EXECUTAR O CÓDIGO
+
+  VERD ! VERM ! LAR
+  VERM ! VERM !  AM
+  VERM ! VERM ! VERM
+ */
+ 
+topClockservo();
+rightClockservo();
+topClockservo();
+rightIClockservo();
+topIClockservo();
+frontIClockservo();
+topIClockservo();
+frontClockservo();
+
+//-----------------------

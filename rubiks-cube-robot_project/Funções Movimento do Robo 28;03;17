@@ -1,4 +1,5 @@
 // codigo: Helora e Samara
+// No primeiro teste a garra esta indo mais pra trás 
 #define servo 43
 int pino_D0 = 2;
 int pulso;
@@ -16,9 +17,6 @@ Serial.begin(9600);
 pinMode (servo, OUTPUT);
 pinMode(pino_D0, INPUT);
 pulso = 0;
-digitalWrite(49, LOW);
-digitalWrite(48, LOW);
-digitalWrite(50, LOW);
 }
 void servo90graus(){
   digitalWrite(servo, HIGH);
@@ -70,7 +68,7 @@ void anda_90garra(){
 
  }
  parar();
- delay(800); //coloquei esse delay pra ajustar o angulo da base, pra ficar mais reta com a grarra ;)
+ delay(800); //delay pra ajuste da base
  analogWrite(ena, 40);
  digitalWrite(in1, HIGH);
  digitalWrite(in2, LOW);  
@@ -80,9 +78,120 @@ void anda_90garra(){
 }
 void loop() {
 
-frontIClockservo();
-delay(2000);
+char tecla;
+tecla = Serial.read();
+if (tecla == '1'){
+bottomIClockservo();}//certo
+if (tecla == '2'){
+bottomClockservo();}//certo
+if (tecla == '3'){
+bottomClock180servo();}//certo
+if (tecla == '4'){
+backIClockservo();}//certo
+if (tecla == '5'){
+backClockservo();}//certo
+if (tecla == '6'){
+backClock180servo();}//certo
+if (tecla == '7'){
+topIClockservo();}//certo
+if (tecla == '8'){
+topClockservo();}//certo
+if (tecla == '9'){
+topClock180servo();}//certo
+if (tecla == 'a'){
+leftClock180servo();}// certo
+if (tecla == 'b'){
+leftIClockservo();}// certo
+if (tecla == 'c'){
+leftClockservo();}// certo
+if (tecla == 'd'){
+rightClock180servo();}// certo
+if (tecla == 'e'){
+rightIClockservo();}// certo
+if (tecla == 'f'){
+rightClockservo();}// certo 
+if (tecla == 'g'){
+frontClock180servo();}//certo
+if (tecla == 'h'){
+frontClockservo();}//certo
+if (tecla == 'i'){
+frontIClockservo();}//certo
+
+
+
+if (tecla == 'k'){//PASSOU
+//CASOS DE TESTE
+
+//CASO SIMPLES 1
+/*FRONT, COLOCAR NA CONFIGURAÇÃO ABAIXO E EXECUTAR O CÓDIGO
+
+  LAR ! LAR ! AM
+  VERD! VERD! AM
+  VERD! VERD! VERD
+ */
+ 
+rightClockservo();
+topIClockservo();
+rightIClockservo();
+} 
+//-----------------------
+
+if (tecla == 'l'){//PASSOU
+//CASO SIMPLES 2
+/*FRONT, COLOCAR NA CONFIGURAÇÃO ABAIXO E EXECUTAR O CÓDIGO 
+
+  VERD ! LAR ! LAR
+   AM  ! VERD! VERD
+   AM  ! VERD! VERD
+ */
+ 
+leftIClockservo();
+topIClockservo(); 
+leftClockservo();
+}
+//-----------------------
+if (tecla == 'm'){//PASSOU
+//CASO MÉDIO 1
+/*FRONT (PECA DA 2 CAMADA PRA ESQUERDA), COLOCAR NA CONFIGURAÇÃO ABAIXO E EXECUTAR O CÓDIGO
+
+  VERD ! VERM ! LAR
+   AM  ! VERM ! VERM
+  VERM ! VERM ! VERM
+ */
+ 
+topIClockservo();
+leftIClockservo();
+topIClockservo();
+leftClockservo();
+topClockservo();
 frontClockservo();
-delay(2000);
+topClockservo();
+frontIClockservo();
+
+}
+
+//-----------------------
+if (tecla == 'n'){//PASSOU
+//CASO MÉDIO 2
+/*FRONT (PECA DA 2 CAMADA PRA DIREITA), COLOCAR NA CONFIGURAÇÃO ABAIXO E EXECUTAR O CÓDIGO
+
+  VERD ! VERM ! LAR
+  VERM ! VERM !  AM
+  VERM ! VERM ! VERM
+ */
+ 
+topClockservo();
+rightClockservo();
+topClockservo();
+rightIClockservo();
+topIClockservo();
+frontIClockservo();
+topIClockservo();
+frontClockservo();
+
+//-----------------------
+} 
+
+
 
 }

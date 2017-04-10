@@ -1,4 +1,3 @@
-//METODOS LEFT FORAM TROCADOS POR RIGHT 
 //MÉTODOS LEFT E RIGTH TESTADOS E CERTOS :3
 
 void frontIClockservo(){
@@ -72,7 +71,7 @@ void frontClockservo(){
   for(char i = 0; i < 30; i++)  servo20graus();
   for(char i = 0; i < 30; i++) servo90graus();  
   }
-void leftIClockservo(){//LEFT DONE
+void leftIClockservo(){
   fim_movimento = 1;
   anda_90livre();
   delay(100);
@@ -469,30 +468,3 @@ void topClock180servo(){
   for(char i = 0; i < 30; i++) servo90graus();
   delay(100);  
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  

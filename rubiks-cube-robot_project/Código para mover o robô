@@ -1,0 +1,257 @@
+// codigo: Helora e Samara
+
+#define servo 43
+#define servoajuste 47
+#define servoajuste2 3
+int pino_D0 = 2;
+int pulso;
+int ena = 44;
+int in1 = 45;
+int in2 = 46;
+int fim_movimento = 1;
+void parar(){
+   analogWrite(ena, 0);
+   digitalWrite(in1, HIGH);
+   digitalWrite(in2, HIGH);
+  }
+void setup() {
+Serial.begin(9600);
+pinMode(servo, OUTPUT);
+pinMode(servoajuste, OUTPUT);
+pinMode(servoajuste2, OUTPUT);
+pinMode(pino_D0, INPUT);
+pulso = 0;
+//for(char i = 0; i < 30; i++)  servo_ajuste();
+}
+
+void servo_ajuste(){
+  digitalWrite(servoajuste, HIGH);
+  delayMicroseconds(760);
+  digitalWrite(servoajuste, LOW);
+  for(int i = 0; i<25; i++) delayMicroseconds(760);
+  }
+  
+//----------------Garra ajuste----------------------------
+void servo_ajuste2Fechar(){
+  digitalWrite(servoajuste2, HIGH);
+  delayMicroseconds(900);
+  digitalWrite(servoajuste2, LOW);
+  for(int i = 0; i<2; i++) delayMicroseconds(900);
+  }
+  
+  void servo_ajuste2Abrir(){
+   digitalWrite(servoajuste2, HIGH);  //pulso do servo
+   delayMicroseconds(2400);     //2.4ms
+   digitalWrite(servoajuste2, LOW);   //completa periodo do servo
+   for(int i=0;i<7;i++)delayMicroseconds(2400);
+  }
+//--------------------------------------------
+  
+void servo90graus(){
+  digitalWrite(servo, HIGH);
+  delayMicroseconds(1200);
+  digitalWrite(servo, LOW);
+  for(int i = 0; i<15; i++) delayMicroseconds(1200);
+  }
+
+void servo50graus(){
+  digitalWrite(servo, HIGH);
+  delayMicroseconds(930);
+  digitalWrite(servo, LOW);
+  for(int i = 0; i<20; i++) delayMicroseconds(930);
+  }
+void servo20graus(){
+  digitalWrite(servo, HIGH);
+  delayMicroseconds(760);
+  digitalWrite(servo, LOW);
+  for(int i = 0; i<25; i++) delayMicroseconds(760);
+  }
+void anda_90livre(){
+
+ pulso = digitalRead(pino_D0);
+ while (pulso == 1 && fim_movimento == 1) {
+  analogWrite(ena, 60);
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);  
+  pulso = digitalRead(pino_D0);
+ }
+ parar();
+
+ delay(20);
+ analogWrite(ena, 40);
+ digitalWrite(in1, HIGH);
+ digitalWrite(in2, LOW);  
+ delay(150);
+ parar();
+ fim_movimento = 0;
+ Serial.println("Cubo Parado");
+ delay(500);
+
+}
+
+void anda_90garra(){
+ Serial.println(pulso);  
+ pulso = digitalRead(pino_D0);
+ while (pulso == 1 && fim_movimento == 1) {
+  analogWrite(ena, 60);
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);  
+  pulso = digitalRead(pino_D0);
+ }
+ parar();
+ delay(500);
+ Serial.println("Cubo Parado");
+}
+
+void ajuste_90garra(){  
+ analogWrite(ena, 40);
+ digitalWrite(in1, HIGH);
+ digitalWrite(in2, LOW);  
+ delay(138);// era 48
+ parar(); 
+}
+void loop() {
+
+char tecla;
+tecla = Serial.read();
+if (tecla == '1'){
+bottomIClockservo();}//certo1
+if (tecla == '2'){
+bottomClockservo();
+bottomClock180servo();}//certo2
+if (tecla == '3'){
+bottomClock180servo();}//certo3
+if (tecla == '4'){
+backIClockservo();
+backClockservo();}//certo4
+if (tecla == '5'){
+backClockservo();}//certo5
+if (tecla == '6'){
+backClock180servo();
+leftClock180servo();}//certo6
+if (tecla == '7'){
+topIClockservo();}//certo7
+if (tecla == '8'){
+topClockservo();}//certo8
+if (tecla == '9'){
+topClock180servo();}//certo9
+if (tecla == 'a'){
+leftClock180servo();}// certo10
+if (tecla == 'b'){
+leftIClockservo();}// certo11
+if (tecla == 'c'){
+leftClockservo();}// certo12
+if (tecla == 'd'){
+rightClock180servo();}// certo13
+if (tecla == 'e'){
+rightIClockservo();}// certo14
+if (tecla == 'f'){
+rightClockservo();}// certo15 
+if (tecla == 'g'){
+frontClock180servo();}//certo16
+if (tecla == 'h'){
+frontClockservo();}//certo17
+if (tecla == 'i'){
+frontIClockservo();}//certo18
+if (tecla == 'x'){
+ for(char i = 0; i < 30; i++)  servo50graus();
+ 
+  delay(200);}
+if (tecla == 'y'){
+anda_90garra();}
+if (tecla == 'z'){
+  for(char i = 0; i < 30; i++)  servo20graus();
+  for(char i = 0; i < 70; i++)  servo90graus();}
+  
+if(tecla == 'v'){
+  
+  for(char i=0;i<100;i++)servo_ajuste2Fechar();
+  for(char i=0;i<100;i++) servo_ajuste2Abrir();
+  
+  }
+if(tecla == 'p'){
+
+  for(char i=0;i<100;i++) servo_ajuste2Abrir();
+  
+
+  }
+
+
+
+if (tecla == 'k'){//PASSOU
+//CASOS DE TESTE
+
+//CASO SIMPLES 1
+/*FRONT, COLOCAR NA CONFIGURAÇÃO ABAIXO E EXECUTAR O CÓDIGO
+
+  LAR ! LAR ! AM
+  VERD! VERD! AM
+  VERD! VERD! VERD
+ */
+ 
+rightClockservo();
+topIClockservo();
+
+rightIClockservo();
+} 
+//-----------------------
+
+if (tecla == 'l'){//PASSOU
+//CASO SIMPLES 2
+/*FRONT, COLOCAR NA CONFIGURAÇÃO ABAIXO E EXECUTAR O CÓDIGO 
+
+  VERD ! LAR ! LAR
+   AM  ! VERD! VERD
+   AM  ! VERD! VERD
+ */
+ 
+leftIClockservo();
+topIClockservo(); 
+leftClockservo();
+}
+//-----------------------
+if (tecla == 'm'){//PASSOU
+//CASO MÉDIO 1
+/*FRONT (PECA DA 2 CAMADA PRA ESQUERDA), COLOCAR NA CONFIGURAÇÃO ABAIXO E EXECUTAR O CÓDIGO
+
+  VERD ! VERM ! LAR
+   AM  ! VERM ! VERM
+  VERM ! VERM ! VERM
+ */
+ 
+topIClockservo();
+leftIClockservo();
+topIClockservo();
+leftClockservo();
+topClockservo();
+frontClockservo();
+topClockservo();
+frontIClockservo();
+
+}
+
+//-----------------------
+if (tecla == 'n'){//PASSOU
+//CASO MÉDIO 2
+/*FRONT (PECA DA 2 CAMADA PRA DIREITA), COLOCAR NA CONFIGURAÇÃO ABAIXO E EXECUTAR O CÓDIGO
+
+  VERD ! VERM ! LAR
+  VERM ! VERM !  AM
+  VERM ! VERM ! VERM
+ */
+ 
+topClockservo();
+rightClockservo();
+topClockservo();
+rightIClockservo();
+topIClockservo();
+frontIClockservo();
+topIClockservo();
+frontClockservo();
+
+//-----------------------
+} 
+
+
+
+}

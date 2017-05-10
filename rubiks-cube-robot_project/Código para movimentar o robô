@@ -21,7 +21,8 @@ pinMode(servoajuste, OUTPUT);
 pinMode(servoajuste2, OUTPUT);
 pinMode(pino_D0, INPUT);
 pulso = 0;
-//for(char i = 0; i < 30; i++)  servo_ajuste();
+
+
 }
 
 void servo_ajuste(){
@@ -31,7 +32,7 @@ void servo_ajuste(){
   for(int i = 0; i<25; i++) delayMicroseconds(760);
   }
   
-//----------------Garra ajuste----------------------------
+//-----------------Garra de Ajuste---------------------------
 void servo_ajuste2Fechar(){
   digitalWrite(servoajuste2, HIGH);
   delayMicroseconds(900);
@@ -43,7 +44,7 @@ void servo_ajuste2Fechar(){
    digitalWrite(servoajuste2, HIGH);  //pulso do servo
    delayMicroseconds(2400);     //2.4ms
    digitalWrite(servoajuste2, LOW);   //completa periodo do servo
-   for(int i=0;i<7;i++)delayMicroseconds(2400);
+   for(int i=0;i<7;i++)delayMicroseconds(1400);
   }
 //--------------------------------------------
   
@@ -68,8 +69,12 @@ void servo20graus(){
   }
 void anda_90livre(){
 
- pulso = digitalRead(pino_D0);
- while (pulso == 1 && fim_movimento == 1) {
+  pulso = digitalRead(pino_D0);
+  analogWrite(ena, 60);
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+  delay(200); 
+  while (pulso == 1 && fim_movimento == 1) {
   analogWrite(ena, 60);
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH);  
@@ -81,7 +86,7 @@ void anda_90livre(){
  analogWrite(ena, 40);
  digitalWrite(in1, HIGH);
  digitalWrite(in2, LOW);  
- delay(150);
+ delay(160);
  parar();
  fim_movimento = 0;
  Serial.println("Cubo Parado");
@@ -102,57 +107,104 @@ void anda_90garra(){
  delay(500);
  Serial.println("Cubo Parado");
 }
-
+void anda_90livre_esq(){
+  pulso = digitalRead(pino_D0);
+  analogWrite(ena, 50);
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+  delay(300);  
+ while (pulso == 1 && fim_movimento == 1) {
+  analogWrite(ena, 60);
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);  
+  pulso = digitalRead(pino_D0);
+  Serial.println(pulso);
+ }
+ parar();
+ delay(20);
+ analogWrite(ena, 40);
+ digitalWrite(in1, LOW);
+ digitalWrite(in2, HIGH);  
+ delay(400);
+ parar();
+ fim_movimento = 0;
+ Serial.println("Cubo Parado");  
+  }
 void ajuste_90garra(){  
  analogWrite(ena, 40);
  digitalWrite(in1, HIGH);
  digitalWrite(in2, LOW);  
- delay(138);// era 48
+ delay(130);// era 48
  parar(); 
 }
+
 void loop() {
 
 char tecla;
 tecla = Serial.read();
 if (tecla == '1'){
-bottomIClockservo();}//certo1
+ bottomIClockservo();
+} //certo1
 if (tecla == '2'){
 bottomClockservo();
-bottomClock180servo();}//certo2
+bottomClock180servo();
+leftClock180servo();
+topIClockservo();
+topClock180servo();
+leftIClockservo();
+leftClock180servo();
+frontClockservo();
+rightClock180servo();
+backClock180servo();
+}//certo2
 if (tecla == '3'){
-bottomClock180servo();}//certo3
+bottomClock180servo();
+ }//certo3
 if (tecla == '4'){
 backIClockservo();
-backClockservo();}//certo4
+}//certo4
 if (tecla == '5'){
-backClockservo();}//certo5
+backClockservo();
+}//certo5
 if (tecla == '6'){
 backClock180servo();
-leftClock180servo();}//certo6
+}//certo6
 if (tecla == '7'){
-topIClockservo();}//certo7
+topIClockservo();
+}//certo7
 if (tecla == '8'){
-topClockservo();}//certo8
+topClockservo();
+}//certo8
 if (tecla == '9'){
-topClock180servo();}//certo9
+topClock180servo();
+}//certo9
 if (tecla == 'a'){
-leftClock180servo();}// certo10
+leftClock180servo();
+}// certo10
 if (tecla == 'b'){
-leftIClockservo();}// certo11
+leftIClockservo();
+}// certo11
 if (tecla == 'c'){
-leftClockservo();}// certo12
+leftClockservo();
+}// certo12
 if (tecla == 'd'){
-rightClock180servo();}// certo13
+rightClock180servo();
+}// certo13
 if (tecla == 'e'){
-rightIClockservo();}// certo14
+rightIClockservo();;
+}// certo14 
 if (tecla == 'f'){
-rightClockservo();}// certo15 
+rightClockservo();
+}// certo15 
 if (tecla == 'g'){
-frontClock180servo();}//certo16
+frontClock180servo();
+}//certo16
 if (tecla == 'h'){
-frontClockservo();}//certo17
+frontClockservo();
+}//certo17
 if (tecla == 'i'){
-frontIClockservo();}//certo18
+frontIClockservo();
+}//certo18
 if (tecla == 'x'){
  for(char i = 0; i < 30; i++)  servo50graus();
  
@@ -170,13 +222,14 @@ if(tecla == 'v'){
   
   }
 if(tecla == 'p'){
-
-  for(char i=0;i<100;i++) servo_ajuste2Abrir();
-  
-
+  fim_movimento = 1;
+  anda_90livre();
+  delay(200);
   }
 
-
+if (tecla == 't'){
+leftIClockservo();  
+  }
 
 if (tecla == 'k'){//PASSOU
 //CASOS DE TESTE
@@ -252,6 +305,47 @@ frontClockservo();
 //-----------------------
 } 
 
-
-
+if (tecla == 'o'){
+//Cruz amarela 
+frontClockservo();
+rightClockservo(); 
+topClockservo();
+rightIClockservo();
+topIClockservo(); 
+frontIClockservo(); 
+  }
+if (tecla == 'q'){
+//completa parte de cima
+rightClockservo();  
+topClockservo();
+rightIClockservo();  
+topClockservo();
+rightClockservo();
+topClock180servo(); 
+rightIClockservo(); 
+  }
+if (tecla == 'r'){
+//penultimo passo  
+rightClockservo();
+backIClockservo(); 
+rightClockservo();
+frontClock180servo(); 
+rightIClockservo();
+backClockservo();
+rightClockservo();
+frontClock180servo(); 
+rightClock180servo();
+  }
+if (tecla == 's'){
+//ultimo passo
+frontClock180servo(); 
+topClockservo();
+leftClockservo();
+rightIClockservo(); 
+frontClock180servo();
+leftIClockservo(); 
+rightClockservo(); 
+topClockservo();
+frontClock180servo();  
+  }
 }

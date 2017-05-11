@@ -147,15 +147,6 @@ if (tecla == '1'){
 } //certo1
 if (tecla == '2'){
 bottomClockservo();
-bottomClock180servo();
-leftClock180servo();
-topIClockservo();
-topClock180servo();
-leftIClockservo();
-leftClock180servo();
-frontClockservo();
-rightClock180servo();
-backClock180servo();
 }//certo2
 if (tecla == '3'){
 bottomClock180servo();

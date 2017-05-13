@@ -2,7 +2,7 @@
  * File:   main.c
  * Author: Camila Jordana Ribeiro Teixeira
  *
- * Última modificação: 20/11/2016
+ * Última modificação: 13/05/2017
  */
 
 #include <stdio.h>
@@ -17,15 +17,17 @@ struct Face {
 };
 
 typedef struct Cubo {
-    struct Face front;
-    struct Face top;
-    struct Face bottom;
-    struct Face right;
-    struct Face left;
-    struct Face back;
+    struct Face F;
+    struct Face U;
+    struct Face D;
+    struct Face R;
+    struct Face L;
+    struct Face B;
 };
 
 char historyMoviments[1000000];
+
+int montando = 0;
 
 int top_1[3];
 int top_2[3];
@@ -51,6 +53,8 @@ int right_2[3];
 
 int rightI_1[3];
 int rightI_2[3];
+
+int contMovimentos = 0;
 
 void turnClock(int face[][3]) {
     int aux1, aux2;
@@ -207,8 +211,10 @@ void setRight(int face[][3], int r[]) {
 
 //MÉTODOS DA CLASSE CUBO
 
-void frontClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
-    
+//MÉTODOS DA CLASSE CUBO
+
+void girandoFront(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
+
     turnClock(front_f);
     getBottom(top_f, 1);
     getLeftI(right_f, 1);
@@ -218,24 +224,43 @@ void frontClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[]
     setLeft(right_f, bottom_1);
     setTop(bottom_f, leftI_1);
     setRight(left_f, top_1);
-    strcat(historyMoviments, "frontClock\n");
-    
-    
+    // if (montando == 1) {
+    //     strcat(historyMoviments, "frontClock\n");
+    // }
+
+}
+
+void frontClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
+    girandoFront(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "frontClock\n");
+        contMovimentos++;
+    }
 }
 
 void frontClock180(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
-    frontClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    frontClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
+
+    girandoFront(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoFront(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "frontClock180\n");
+        contMovimentos++;
+    }
 
 }
 
 void frontIClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
-    frontClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    frontClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    frontClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
+
+    girandoFront(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoFront(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoFront(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "frontIClock\n");
+        contMovimentos++;
+    }
 }
 
-void rightClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
+void girandoRight(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
     turnClock(right_f);
     getRightI(top_f, 1);
     getRightI(back_f, 2);
@@ -245,24 +270,43 @@ void rightClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[]
     setRight(back_f, rightI_1);
     setRight(bottom_f, rightI_2);
     setRight(front_f, right_1);
-    
-    strcat(historyMoviments, "rightClock\n");
-    
+    // if (montando == 1) {
+    //   strcat(historyMoviments, "rightClock\n");
+    // }
+}
+
+void rightClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
+    girandoRight(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "rightClock\n");
+        contMovimentos++;
+    }
 }
 
 void rightClock180(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
-    rightClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    rightClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
+
+    girandoRight(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoRight(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "rightClock180\n");
+        contMovimentos++;
+    }
+
 }
 
 void rightIClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
-    rightClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    rightClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    rightClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
+
+    girandoRight(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoRight(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoRight(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "rightIClock\n");
+        contMovimentos++;
+    }
     //historyMoviments += "rightIClock\n";
 }
 
-void leftClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
+void girandoLeft(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
     turnClock(left_f);
     getLeft(top_f, 1);
     getLeft(front_f, 2);
@@ -272,26 +316,42 @@ void leftClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][
     setLeft(front_f, left_1);
     setLeft(bottom_f, left_2);
     setLeft(back_f, leftI_1);
-    
-    strcat(historyMoviments, "leftClock\n");
-    
-    
+    //if (montando == 1) {
+    //    strcat(historyMoviments, "leftClock\n");
+    //}
+}
+
+void leftClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
+    girandoLeft(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "leftClock\n");
+        contMovimentos++;
+    }
 }
 
 void leftClock180(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
-    leftClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    leftClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
+
+    girandoLeft(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoLeft(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "leftClock180\n");
+        contMovimentos++;
+    }
     //historyMoviments += "leftClock180\n";
 }
 
 void leftIClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
-    leftClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    leftClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    leftClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoLeft(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoLeft(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoLeft(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "leftIClock\n");
+        contMovimentos++;
+    }
     //historyMoviments += "leftIClock\n";
 }
 
-void bottomIClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
+void girandoBottom(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
     turnIClock(bottom_f);
     getBottom(right_f, 1);
     getBottom(front_f, 2);
@@ -301,26 +361,43 @@ void bottomIClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f
     setBottom(front_f, bottom_1);
     setBottom(left_f, bottom_2);
     setBottom(back_f, bottomI_1);
-    
-    strcat(historyMoviments, "bottomIClock\n");
-    
-    
+    //if (montando == 1) {
+    //     strcat(historyMoviments, "bottomIClock\n");
+    //}
+}
+
+void bottomIClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
+    girandoBottom(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "bottomIClock\n");
+        contMovimentos++;
+    }
 }
 
 void bottomClock180(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
-    bottomIClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    bottomIClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
+
+    girandoBottom(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoBottom(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "bottomClock180\n");
+        contMovimentos++;
+    }
     //historyMoviments += "bottomClock180\n";
 }
 
 void bottomClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
-    bottomIClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    bottomIClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    bottomIClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
+
+    girandoBottom(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoBottom(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoBottom(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "bottomClock\n");
+        contMovimentos++;
+    }
     //historyMoviments += "bottomClock\n";
 }
 
-void backIClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
+void girandoBack(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
     turnClock(back_f);
     getTop(top_f, 1);
     getRightI(right_f, 1);
@@ -330,27 +407,45 @@ void backIClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[]
     setRight(right_f, top_1);
     setBottom(bottom_f, rightI_1);
     setLeft(left_f, bottom_1);
-    
-    strcat(historyMoviments, "backIClock\n");
-    
-    
+    // if (montando == 1) {
+    //     strcat(historyMoviments, "backIClock\n");
+    // }
+
+}
+
+void backIClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
+    girandoBack(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "backIClock\n");
+        contMovimentos++;
+    }
 }
 
 void backClock180(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
-    backIClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    backIClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
+
+    girandoBack(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoBack(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "backClock180\n");
+        contMovimentos++;
+    }
     //historyMoviments += "backClock180\n";
 }
 
 void backClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
-    backIClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    backIClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    backIClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
+
+    girandoBack(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoBack(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoBack(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "backClock\n");
+        contMovimentos++;
+    }
     //historyMoviments += "backClock\n";
 
 }
 
-void topClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
+void girandoTop(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
     turnClock(top_f);
     getTop(right_f, 1);
     getTop(front_f, 2);
@@ -360,22 +455,40 @@ void topClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3
     setTop(front_f, top_1);
     setTop(left_f, top_2);
     setTop(back_f, topI_1);
-    
-    strcat(historyMoviments, "topClock\n");
-    
-    
+    //   if (montando == 1) {
+    //     strcat(historyMoviments, "topClock\n");
+    // }
+
+}
+
+void topClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
+    girandoTop(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "topClock\n");
+        contMovimentos++;
+    }
 }
 
 void topClock180(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
-    topClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    topClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
+
+    girandoTop(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoTop(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "topClock180\n");
+        contMovimentos++;
+    }
     //historyMoviments += "topClock180\n";
 }
 
 void topIClock(int left_f[][3], int front_f[][3], int right_f[][3], int top_f[][3], int bottom_f[][3], int back_f[][3]) {
-    topClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    topClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    topClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
+
+    girandoTop(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoTop(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    girandoTop(left_f, front_f, right_f, top_f, bottom_f, back_f);
+    if (montando == 1) {
+        strcat(historyMoviments, "topIClock\n");
+        contMovimentos++;
+    }
     //historyMoviments += "topIClock\n";
 }
 
@@ -2397,37 +2510,37 @@ void exibir_Cubo(struct Cubo cubo) {
 
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
-            matriz_back[i][j] = cubo.back.face[i][j];
+            matriz_back[i][j] = cubo.B.face[i][j];
         }
     }
 
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
-            matriz_front[i][j] = cubo.front.face[i][j];
+            matriz_front[i][j] = cubo.F.face[i][j];
         }
     }
 
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
-            matriz_left[i][j] = cubo.left.face[i][j];
+            matriz_left[i][j] = cubo.L.face[i][j];
         }
     }
 
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
-            matriz_right[i][j] = cubo.right.face[i][j];
+            matriz_right[i][j] = cubo.R.face[i][j];
         }
     }
 
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
-            matriz_top[i][j] = cubo.top.face[i][j];
+            matriz_top[i][j] = cubo.U.face[i][j];
         }
     }
 
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
-            matriz_bottom[i][j] = cubo.bottom.face[i][j];
+            matriz_bottom[i][j] = cubo.D.face[i][j];
         }
     }
 
@@ -2463,58 +2576,58 @@ int main(int argc, char** argv) {
 
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
-            cubo.bottom.face[i][j] = 1;
+            cubo.D.face[i][j] = 1;
         }
     }
 
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
-            cubo.top.face[i][j] = 2;
+            cubo.U.face[i][j] = 2;
         }
     }
 
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
-            cubo.front.face[i][j] = 3;
+            cubo.F.face[i][j] = 3;
         }
     }
 
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
-            cubo.right.face[i][j] = 4;
+            cubo.R.face[i][j] = 4;
         }
     }
 
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
-            cubo.back.face[i][j] = 5;
+            cubo.B.face[i][j] = 5;
         }
     }
 
 
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
-            cubo.left.face[i][j] = 6;
+            cubo.L.face[i][j] = 6;
         }
     }
 
 
-    frontClock180(cubo.left.face, cubo.front.face, cubo.right.face, cubo.top.face, cubo.bottom.face, cubo.back.face);
-    rightClock(cubo.left.face, cubo.front.face, cubo.right.face, cubo.top.face, cubo.bottom.face, cubo.back.face);
-    leftClock(cubo.left.face, cubo.front.face, cubo.right.face, cubo.top.face, cubo.bottom.face, cubo.back.face);
-    rightIClock(cubo.left.face, cubo.front.face, cubo.right.face, cubo.top.face, cubo.bottom.face, cubo.back.face);
-    leftClock180(cubo.left.face, cubo.front.face, cubo.right.face, cubo.top.face, cubo.bottom.face, cubo.back.face);
-    bottomIClock(cubo.left.face, cubo.front.face, cubo.right.face, cubo.top.face, cubo.bottom.face, cubo.back.face);
-    leftIClock(cubo.left.face, cubo.front.face, cubo.right.face, cubo.top.face, cubo.bottom.face, cubo.back.face);
+    frontClock180(cubo.L.face, cubo.F.face, cubo.R.face, cubo.U.face, cubo.D.face, cubo.B.face);
+    backClock(cubo.L.face, cubo.F.face, cubo.R.face, cubo.U.face, cubo.D.face, cubo.B.face);
+    leftIClock(cubo.L.face, cubo.F.face, cubo.R.face, cubo.U.face, cubo.D.face, cubo.B.face);
+    rightClock(cubo.L.face, cubo.F.face, cubo.R.face, cubo.U.face, cubo.D.face, cubo.B.face);
+    leftClock180(cubo.L.face, cubo.F.face, cubo.R.face, cubo.U.face, cubo.D.face, cubo.B.face);
+    bottomIClock(cubo.L.face, cubo.F.face, cubo.R.face, cubo.U.face, cubo.D.face, cubo.B.face);
+    leftIClock(cubo.L.face, cubo.F.face, cubo.R.face, cubo.U.face, cubo.D.face, cubo.B.face);
 
+    montando = 1;
 
-
-    primeiraCamada(cubo.left.face, cubo.front.face, cubo.right.face, cubo.top.face, cubo.bottom.face, cubo.back.face);
-    segundaCamada(cubo.left.face, cubo.front.face, cubo.right.face, cubo.top.face, cubo.bottom.face, cubo.back.face);
-    cruzAmarela(cubo.left.face, cubo.front.face, cubo.right.face, cubo.top.face, cubo.bottom.face, cubo.back.face);
-    orientacaoCantos(cubo.left.face, cubo.front.face, cubo.right.face, cubo.top.face, cubo.bottom.face, cubo.back.face);
-    permutacoesDosCantos(cubo.left.face, cubo.front.face, cubo.right.face, cubo.top.face, cubo.bottom.face, cubo.back.face);
-    permutacoesDosMeios(cubo.left.face, cubo.front.face, cubo.right.face, cubo.top.face, cubo.bottom.face, cubo.back.face);
+    primeiraCamada(cubo.L.face, cubo.F.face, cubo.R.face, cubo.U.face, cubo.D.face, cubo.B.face);
+    segundaCamada(cubo.L.face, cubo.F.face, cubo.R.face, cubo.U.face, cubo.D.face, cubo.B.face);
+    cruzAmarela(cubo.L.face, cubo.F.face, cubo.R.face, cubo.U.face, cubo.D.face, cubo.B.face);
+    orientacaoCantos(cubo.L.face, cubo.F.face, cubo.R.face, cubo.U.face, cubo.D.face, cubo.B.face);
+    permutacoesDosCantos(cubo.L.face, cubo.F.face, cubo.R.face, cubo.U.face, cubo.D.face, cubo.B.face);
+    permutacoesDosMeios(cubo.L.face, cubo.F.face, cubo.R.face, cubo.U.face, cubo.D.face, cubo.B.face);
 
 
     exibir_Cubo(cubo);

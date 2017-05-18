@@ -1,5 +1,7 @@
 // Código: "funções de hardware do prejeto Cubo Mágico".
 // Autores: Prof.João Moreno(pós doutor em Engenharia Mecânica), Helora(Aluna de Análise e Desenvolvimento de Sistemas), Samara(técnica em Manutenção e Suporte em informática).
+// Algoritmo do método de camadas: Camila Jordana Ribeiro Teixeira (Graduanda em Análise e Desenvolvimento de Sistemas).
+
 #define servo_garra 43 //define o servo garra na porta 43
 #define servo_ajuste 3 //define o servo de ajuste na porta 3 (PWM)
 

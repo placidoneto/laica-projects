@@ -1984,7 +1984,7 @@ void orientacaoCantos(int left_f[][3], int front_f[][3], int right_f[][3], int t
         rightClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
         topIClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
         rightIClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
-    } else if (right_f[0][0] == 2 && right_f[0][2] == 2 && front_f[0][2] == 2 && back_f[0][2] == 2) {
+    } else if (left_f[0][0] == 2 && left_f[0][2] == 2 && front_f[0][2] == 2 && back_f[0][2] == 2) {
         // 3º CASO
         // R U2 R2 U' R2 U' R2 U2 R
         rightClock(left_f, front_f, right_f, top_f, bottom_f, back_f);
